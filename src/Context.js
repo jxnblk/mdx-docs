@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
-const Context = React.createContext(null)
+const Context = React.createContext()
 
 export const DocsProvider = withRouter(class extends React.Component {
   static propTypes = {

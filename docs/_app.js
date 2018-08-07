@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from 'grid-styled'
-import { Container, Layout } from '../src'
+import { Provider, Layout } from '../src'
 import * as Rebass from 'rebass'
 
 const sidebar = (
@@ -8,7 +8,7 @@ const sidebar = (
 )
 
 export default ({ children, ...props }) =>
-  <Container {...props}
+  <Provider {...props}
     components={Rebass}
   >
     <Rebass.Provider>
@@ -16,4 +16,4 @@ export default ({ children, ...props }) =>
         {children}
       </Layout>
     </Rebass.Provider>
-  </Container>
+  </Provider>

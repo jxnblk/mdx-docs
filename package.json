@@ -13,6 +13,7 @@
   "dependencies": {
     "@mdx-js/loader": "^0.15.0-2",
     "@mdx-js/mdx": "^0.15.0-2",
+    "@mdx-js/mdxast": "^0.15.0-2",
     "@mdx-js/tag": "^0.15.0-2",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -22,6 +23,7 @@
     "chalk": "^2.4.1",
     "clipboardy": "^1.2.3",
     "get-port": "^4.0.0",
+    "gray-matter": "^4.0.1",
     "grid-styled": "^5.0.2",
     "is-absolute-url": "^2.1.0",
     "koa": "^2.5.2",
@@ -42,9 +44,11 @@
     "remark-autolink-headings": "^5.0.0",
     "remark-emoji": "^2.0.1",
     "remark-images": "^0.8.1",
+    "remark-parse": "^5.0.0",
     "remark-slug": "^5.0.0",
     "remark-unwrap-images": "0.0.2-0",
     "styled-components": "^3.4.1",
+    "unified": "^7.0.0",
     "webpack": "^4.16.5"
   },
   "devDependencies": {

@@ -6,6 +6,7 @@ import {
   Route,
 } from 'react-router-dom'
 import Root from './Root'
+import { modes } from './constants'
 
 const isBrowser = typeof document !== undefined
 const Router = isBrowser ? BrowserRouter : StaticRouter
@@ -16,6 +17,12 @@ export default class extends React.Component {
     pathname: '/',
     Root
   }
+
+  state = {
+    mode: modes.normal
+  }
+
+  update = fn => this.setState(fn)
 
   render () {
     const {
@@ -30,7 +37,7 @@ export default class extends React.Component {
         basename={basename}
         location={pathname}
         context={{}}>
-        <Root {...this.props}>
+        <Root {...this.props} {...this.state} update={this.update}>
           <React.Fragment>
             <Switch>
               {routes.map(({ Component, ...route }) => (

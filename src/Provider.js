@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
-import { DocsProvider } from './Context'
+import { withRouter } from 'react-router-dom'
 import defaultComponents from './components'
 import defaultTheme from './themes/base'
+import { DocsProvider } from './context'
 
-export default class Container extends React.Component {
+export class Provider extends React.Component {
   static defaultProps = {
     theme: defaultTheme,
     components: {},
@@ -34,3 +35,5 @@ export default class Container extends React.Component {
     )
   }
 }
+
+export default Provider
