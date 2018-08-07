@@ -13,7 +13,7 @@ const routes = getRoutes()
 render(
   <App
     routes={routes}
-    Root={routes.App}
+    App={routes.App}
   />,
   div
 )

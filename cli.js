@@ -28,6 +28,8 @@ const cli = meow(`
 
     ${chalk.magenta('$ mdx-docs docs')}
 
+    ${chalk.magenta('$ mdx-docs build docs')}
+
   ${chalk.gray('Options:')}
 
     ${chalk.magenta('-p --port')}   Development server port
@@ -78,18 +80,16 @@ opts.outDir = path.resolve(opts.outDir)
 
 switch (cmd) {
   case 'build':
+    const build = require('./lib/build')
     log('exporting')
-    log('TODO')
-    /*
     build(opts)
       .then(stats => {
-        log('exported')
+        log('exported', chalk.gray(opts.outDir))
       })
       .catch(err => {
         log.error(err)
         process.exit(1)
       })
-    */
     break
   case 'dev':
   default:

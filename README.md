@@ -7,34 +7,22 @@ Document and develop React components with MDX
 npm i -D mdx-docs
 ```
 
-- Create documentation with markdown
-- Import and use React components
-- Zero-config
-- No plugins
-- Component-based API
-- Customizable themes
-
-## Getting Started
-
-- install
-- package run scripts
-- mkdir docs
-- vi docs/index.mdx
-- npm start
+- :memo: Create documentation with markdown
+- :atom_symbol: Import and use React components
+- :zero: Zero-config
+- :x: No plugins
+- :gear: Component-based API
+- :nail_care: Customizable themes
 
 
 ---
 
-- [ ] Keyboard
-- [ ] isolation mode
 - [ ] default theme
-- [ ] dark theme
 - [ ] HTML Export
 - [ ] ScrollTop
 
-React API
 
-- [ ] make `withRouter` optional
+- [ ] make `withRouter` optional (React API)
 
 Exporting
 

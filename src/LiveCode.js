@@ -11,7 +11,7 @@ import { withDocs } from './context'
 const css = key => props => props.theme[key]
 const transformCode = src => `<React.Fragment>${src}</React.Fragment>`
 
-const Root = styled.div([], css('EditableCode'))
+const Root = styled.div([], css('LiveCode'))
 const Preview = styled(LivePreview)([], css('LivePreview'))
 const Editor = styled(LiveEditor)([], {
   margin: 0,

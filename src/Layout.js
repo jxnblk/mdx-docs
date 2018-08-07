@@ -13,21 +13,23 @@ const Sidebar = styled(props =>
     {...props}
     width={256}
     flex='none'
-    css={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      bottom: 0,
-      height: '100vh',
-      overflowY: 'auto',
-      WebkitOverflowScrolling: 'touch',
-      transform: 'translateX(-100%)',
-      [breakpoint(props)]: {
-        transform: 'translateX(0)'
-      }
-    }}
   />
-)([], css('Sidebar'))
+)([],{
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  height: '100vh',
+  overflowY: 'auto',
+  WebkitOverflowScrolling: 'touch',
+  transform: 'translateX(-100%)',
+},
+  props => ({
+    [breakpoint(props)]: {
+      transform: 'translateX(0)'
+    }
+  }),
+  css('Sidebar'))
 
 const Main = styled(({
   fullWidth,

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import * as Router from 'react-router-dom'
 import isAbsoluteURL from 'is-absolute-url'
-import LiveEditor from './LiveEditor'
+import LiveCode from './LiveCode'
 
 const css = key => props => props.theme[key]
 
@@ -57,7 +57,7 @@ const code = ({
   const code = React.Children.toArray(children).join('\n')
   if (isEditable) {
     return (
-      <LiveEditor
+      <LiveCode
         code={code}
       />
     )

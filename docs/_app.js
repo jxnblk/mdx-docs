@@ -1,24 +1,29 @@
 import React from 'react'
 import { Box } from 'grid-styled'
-import { Provider, Layout } from '../src'
+import { Provider, Layout, SideNav } from '../src'
 import * as Rebass from 'rebass'
 
-const sidebar = (
-  <pre>sidebar</pre>
-)
-
 const theme = {
-  LiveEditor: {
-    color: 'magenta',
-    backgroundColor: 'black'
-  }
 }
 
-export default ({ children, ...props }) =>
-  <Provider components={Rebass} theme={theme}>
-    <Rebass.Provider>
-      <Layout sidebar={sidebar}>
-        {children}
-      </Layout>
-    </Rebass.Provider>
-  </Provider>
+export default ({ children, ...props }) => {
+  console.log(props)
+  return (
+    <Provider components={Rebass} theme={theme}>
+      <Rebass.Provider>
+        <Layout
+          sidebar={(
+            <SideNav
+              {...props}
+              order={[
+                'index',
+                'getting-started',
+              ]}
+            />
+          )}>
+          {children}
+        </Layout>
+      </Rebass.Provider>
+    </Provider>
+  )
+}

@@ -30,7 +30,7 @@ export default class extends React.Component {
   static defaultProps = {
     routes: [],
     pathname: '/',
-    Root
+    App: Root
   }
 
   state = {
@@ -44,7 +44,7 @@ export default class extends React.Component {
       routes = [],
       pathname,
       basename,
-      Root,
+      App,
     } = this.props
     const { mode } = this.state
 
@@ -55,7 +55,7 @@ export default class extends React.Component {
         context={{}}>
         <ThemeProvider theme={theme}>
           <MDXProvider components={components}>
-            <Root
+            <App
               {...this.props}
               {...this.state}
               update={this.update}>
@@ -83,7 +83,7 @@ export default class extends React.Component {
                   </Switch>
                 </React.Fragment>
               </DocsProvider>
-            </Root>
+            </App>
             <Keyboard
               update={this.update}
               handlers={keyboardShortcuts}

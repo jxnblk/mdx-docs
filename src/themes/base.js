@@ -1,17 +1,25 @@
+import { themeGet } from 'styled-system'
+
 export default {
   Sidebar: {
     paddingTop: '32px',
     paddingBottom: '32px',
     borderRight: '1px solid #ddd'
   },
-  NavLink: {
+  NavLink: props => ({
     display: 'block',
     color: 'inherit',
+    fontWeight: 'bold',
     textDecoration: 'none',
-    padding: '8px'
-  },
-  // names?
-  EditableCode: {
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    paddingLeft: '16px',
+    paddingRight: '16px',
+    '&.active': {
+      color: themeGet('colors.blue', '#07c')(props)
+    }
+  }),
+  LiveCode: {
     border: '1px solid #eee',
     borderRadius: '4px'
   },
@@ -24,5 +32,10 @@ export default {
     backgroundColor: '#eee'
   },
   LiveError: {
+    fontFamily: 'Menlo, monospace',
+    fontSize: '12px',
+    padding: '8px',
+    color: 'white',
+    backgroundColor: '#f00'
   },
 }

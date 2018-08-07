@@ -10,7 +10,8 @@ export default class Sidenav extends React.Component {
   render () {
     const {
       order = [],
-      routes = []
+      routes = [],
+      children
     } = this.props
 
     const links = sortby(routes, route => order.indexOf(route.name))
@@ -21,9 +22,11 @@ export default class Sidenav extends React.Component {
           <NavLink
             key={link.key}
             to={link.path}
+            exact={link.exact}
             children={link.name}
           />
         ))}
+        {children}
       </React.Fragment>
     )
   }
