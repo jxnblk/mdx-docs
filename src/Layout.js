@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { themeGet } from 'styled-system'
 
 const breakpoint = props =>
-  `@media screen and (min-width: ${themeGet('breakpoints.1', '40em')(props)})`
+  `@media screen and (min-width: ${themeGet('breakpoints.0', '40em')(props)})`
 
 const css = key => props => props.theme[key]
 

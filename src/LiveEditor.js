@@ -23,9 +23,7 @@ const Editor = styled(LiveEditor)([], {
 const Err = styled(LiveError)([], css('LiveError'))
 
 export default withDocs(({
-  docs: {
-    components,
-  } = {},
+  components,
   code,
   ...props
 }) => (
