@@ -11,10 +11,7 @@ const routes = getRoutes()
 
 // or hydrate
 render(
-  <App
-    routes={routes}
-    App={routes.App}
-  />,
+  <App routes={routes} />,
   div
 )
 

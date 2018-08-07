@@ -16,7 +16,7 @@ import Keyboard from './Keyboard'
 import { modes } from './constants'
 import { toggleMode } from './updaters'
 
-const isBrowser = typeof document !== undefined
+const isBrowser = typeof document !== 'undefined'
 const Router = isBrowser ? BrowserRouter : StaticRouter
 
 const keys = {
@@ -30,7 +30,6 @@ export default class extends React.Component {
   static defaultProps = {
     routes: [],
     pathname: '/',
-    App: Root
   }
 
   state = {
@@ -44,9 +43,9 @@ export default class extends React.Component {
       routes = [],
       pathname,
       basename,
-      App,
     } = this.props
     const { mode } = this.state
+    const { App = Root } = routes
 
     return (
       <Router
@@ -55,39 +54,41 @@ export default class extends React.Component {
         context={{}}>
         <ThemeProvider theme={theme}>
           <MDXProvider components={components}>
-            <App
-              {...this.props}
-              {...this.state}
-              update={this.update}>
-              <DocsProvider
+            <React.Fragment>
+              <App
                 {...this.props}
                 {...this.state}
                 update={this.update}>
-                <React.Fragment>
-                  <Switch>
-                    {routes.map(({ Component, ...route }) => (
+                <DocsProvider
+                  {...this.props}
+                  {...this.state}
+                  update={this.update}>
+                  <React.Fragment>
+                    <Switch>
+                      {routes.map(({ Component, ...route }) => (
+                        <Route
+                          {...route}
+                          render={router => mode === modes.isolate ? (
+                            <Isolate examples={route.code} />
+                          ) : (
+                            <Component router={router} />
+                          )}
+                        />
+                      ))}
                       <Route
-                        {...route}
-                        render={router => mode === modes.isolate ? (
-                          <Isolate examples={route.code} />
-                        ) : (
-                          <Component router={router} />
+                        render={() => (
+                          <pre>404</pre>
                         )}
                       />
-                    ))}
-                    <Route
-                      render={() => (
-                        <pre>404</pre>
-                      )}
-                    />
-                  </Switch>
-                </React.Fragment>
-              </DocsProvider>
-            </App>
-            <Keyboard
-              update={this.update}
-              handlers={keyboardShortcuts}
-            />
+                    </Switch>
+                  </React.Fragment>
+                </DocsProvider>
+              </App>
+              <Keyboard
+                update={this.update}
+                handlers={keyboardShortcuts}
+              />
+            </React.Fragment>
           </MDXProvider>
         </ThemeProvider>
       </Router>

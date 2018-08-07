@@ -10,6 +10,7 @@ export default {
     display: 'block',
     color: 'inherit',
     fontWeight: 'bold',
+    fontSize: '14px',
     textDecoration: 'none',
     paddingTop: '8px',
     paddingBottom: '8px',

@@ -7,7 +7,7 @@ const theme = {
 }
 
 export default ({ children, ...props }) => {
-  console.log(props)
+  // console.log(props)
   return (
     <Provider components={Rebass} theme={theme}>
       <Rebass.Provider>
