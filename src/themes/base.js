@@ -2,8 +2,8 @@ import { themeGet } from 'styled-system'
 
 export default {
   Sidebar: {
-    paddingTop: '32px',
-    paddingBottom: '32px',
+    paddingTop: '16px',
+    paddingBottom: '16px',
     borderRight: '1px solid #ddd'
   },
   NavLink: props => ({

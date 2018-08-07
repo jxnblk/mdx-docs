@@ -13,6 +13,7 @@ import { DocsProvider } from './context'
 import Root from './Root'
 import Isolate from './Isolate'
 import Keyboard from './Keyboard'
+import ScrollTop from './ScrollTop'
 import { modes } from './constants'
 import { toggleMode } from './updaters'
 
@@ -88,6 +89,7 @@ export default class extends React.Component {
                 update={this.update}
                 handlers={keyboardShortcuts}
               />
+              <ScrollTop />
             </React.Fragment>
           </MDXProvider>
         </ThemeProvider>

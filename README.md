@@ -17,18 +17,7 @@ npm i -D mdx-docs
 
 ---
 
-- [ ] default theme
-- [ ] HTML Export
-- [ ] ScrollTop
-
-
 - [ ] make `withRouter` optional (React API)
-
-Exporting
-
-- [ ] build
-- [ ] build html
 - [ ] custom templates
-
 
 
