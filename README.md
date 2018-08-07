@@ -25,6 +25,7 @@ npm i -D mdx-docs
 
 ---
 
+- [ ] Keyboard
 - [ ] isolation mode
 - [ ] default theme
 - [ ] dark theme
@@ -32,7 +33,14 @@ npm i -D mdx-docs
 - [ ] ScrollTop
 
 React API
-- make `withRouter` optional
+
+- [ ] make `withRouter` optional
+
+Exporting
+
+- [ ] build
+- [ ] build html
+- [ ] custom templates
 
 
 
