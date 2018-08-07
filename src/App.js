@@ -11,10 +11,20 @@ import theme from './themes/base'
 import components from './components'
 import { DocsProvider } from './context'
 import Root from './Root'
+import Isolate from './Isolate'
+import Keyboard from './Keyboard'
 import { modes } from './constants'
+import { toggleMode } from './updaters'
 
 const isBrowser = typeof document !== undefined
 const Router = isBrowser ? BrowserRouter : StaticRouter
+
+const keys = {
+  i: 73
+}
+const keyboardShortcuts = {
+  [keys.i]: toggleMode('isolate')
+}
 
 export default class extends React.Component {
   static defaultProps = {
@@ -36,6 +46,7 @@ export default class extends React.Component {
       basename,
       Root,
     } = this.props
+    const { mode } = this.state
 
     return (
       <Router
@@ -57,7 +68,9 @@ export default class extends React.Component {
                     {routes.map(({ Component, ...route }) => (
                       <Route
                         {...route}
-                        render={router => (
+                        render={router => mode === modes.isolate ? (
+                          <Isolate examples={route.code} />
+                        ) : (
                           <Component router={router} />
                         )}
                       />
@@ -71,6 +84,10 @@ export default class extends React.Component {
                 </React.Fragment>
               </DocsProvider>
             </Root>
+            <Keyboard
+              update={this.update}
+              handlers={keyboardShortcuts}
+            />
           </MDXProvider>
         </ThemeProvider>
       </Router>
