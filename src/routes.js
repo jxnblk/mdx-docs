@@ -43,6 +43,7 @@ export const getRoutes = () => {
 
   const app = keys.find(key => key.name === '_app')
   routes.App = app ? req(app.key).default : undefined
+  routes.notFound = routes.find(route => route.name === '404')
 
   return routes
 }

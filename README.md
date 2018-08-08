@@ -31,8 +31,8 @@ npm i -D mdx-docs
 - [ ] make `withRouter` optional (React API)
 - [ ] react-syntax-highlighter
 - [ ] Pagination
-- [ ] 404
-- [ ] error overlay
+- [x] 404
+- [-] error overlay
 
 Docs
 

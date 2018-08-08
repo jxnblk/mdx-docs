@@ -47,6 +47,9 @@ export default class extends React.Component {
     } = this.props
     const { mode } = this.state
     const { App = Root } = routes
+    const NotFound = routes.notFound
+      ? routes.notFound.Component
+      : () => <pre>404</pre>
 
     return (
       <Router
@@ -77,8 +80,11 @@ export default class extends React.Component {
                         />
                       ))}
                       <Route
-                        render={() => (
-                          <pre>404</pre>
+                        render={router => (
+                          <NotFound
+                            {...this.props}
+                            {...router}
+                          />
                         )}
                       />
                     </Switch>

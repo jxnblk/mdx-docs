@@ -13,8 +13,12 @@ export default class Sidenav extends React.Component {
       routes = [],
       children
     } = this.props
+    const pages = routes.filter(route => route.name !== '404')
 
-    const links = sortby(routes, route => order.indexOf(route.name))
+    const links = sortby(pages, route => {
+      const index = order.indexOf(route.name)
+      return index > -1 ? index : Infinity
+    })
 
     return (
       <React.Fragment>
