@@ -32,6 +32,7 @@ npm i -D mdx-docs
 - [ ] react-syntax-highlighter
 - [ ] Pagination
 - [ ] 404
+- [ ] error overlay
 
 Docs
 
