@@ -16,17 +16,15 @@ const navOrder = [
 ]
 
 export default ({ children, ...props }) =>
-  <Provider components={Rebass} theme={theme}>
-    <Rebass.Provider>
-      <Layout
-        pagination={<Pagination order={navOrder} {...props} />}
-        sidebar={(
-          <SideNav
-            {...props}
-            order={navOrder}
-          />
-        )}>
-        {children}
-      </Layout>
-    </Rebass.Provider>
-  </Provider>
+  <Rebass.Provider>
+    <Layout
+      pagination={<Pagination order={navOrder} {...props} />}
+      sidebar={(
+        <SideNav
+          {...props}
+          order={navOrder}
+        />
+      )}>
+      {children}
+    </Layout>
+  </Rebass.Provider>

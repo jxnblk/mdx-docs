@@ -50,6 +50,15 @@ export const getRoutes = () => {
   routes.App = app ? req(app.key).default : undefined
   routes.notFound = routes.find(route => route.name === '404')
 
+  routes.theme = routes.reduce((a, route) => ({
+    ...a,
+    ...(route.module.theme || {})
+  }), {})
+  routes.components = routes.reduce((a, route) => ({
+    ...a,
+    ...(route.module.components || {})
+  }), {})
+
   return routes
 }
 
