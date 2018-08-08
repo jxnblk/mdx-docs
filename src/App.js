@@ -65,9 +65,6 @@ export default class extends React.Component {
     const { App = Root } = routes
 
     return (
-      <Router
-        pathname={pathname}
-        basepath={basename}>
         <ThemeProvider theme={theme}>
           <MDXProvider components={components}>
             <React.Fragment>
@@ -80,6 +77,7 @@ export default class extends React.Component {
                   {...this.state}
                   update={this.update}>
                   <React.Fragment>
+                    <Router pathname={pathname} basepath={basename}>
                       {routes.map(({ Component, ...route }) => (
                         <Route
                           {...route}
@@ -96,6 +94,7 @@ export default class extends React.Component {
                           <pre>404</pre>
                         )}
                       />
+                    </Router>
                   </React.Fragment>
                 </DocsProvider>
               </App>
@@ -107,7 +106,6 @@ export default class extends React.Component {
             </React.Fragment>
           </MDXProvider>
         </ThemeProvider>
-      </Router>
     )
   }
 }

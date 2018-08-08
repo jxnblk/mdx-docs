@@ -1,6 +1,6 @@
+import React from 'react'
 import { Location } from '@reach/router'
 
 export default Component => props =>
-  <Location
-    children={router => <Component {...props} {...router} />}
-  />
+  <Component {...props} />
+  // <Location children={router => <Component {...props} {...router} />} />

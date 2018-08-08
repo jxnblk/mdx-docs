@@ -1,21 +1,19 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-const getProps = ({ isCurrent, isPartiallyCurrent }) => {
+const getProps = ({ className, exact, isCurrent, isPartiallyCurrent }) => {
   const isActive = (exact && isCurrent) || isPartiallyCurrent
-  if (isActive) {
-    return {
-      className: [ className, activeClassName ].join(' '),
-      style: { ...style, ...activeStyle }
-    }
-  } else {
-    return { className, style }
+  return {
+    className: [
+      className,
+      (isActive && 'active')
+    ]
+    .filter(Boolean)
+    .join(' ')
   }
 }
 const RouterNavLink = ({
   activeClassName = 'active',
-  activeStyle,
-  style,
   className,
   exact,
   ...props
