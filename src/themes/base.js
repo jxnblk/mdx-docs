@@ -1,6 +1,15 @@
 import { themeGet } from 'styled-system'
 
 export default {
+  code: {
+    fontFamily: 'Menlo, monospace',
+  },
+  pre: {
+    fontFamily: 'Menlo, monospace',
+  },
+  Layout: {
+    // fontFamily: '"Avenir Next", Roboto, sans-serif',
+  },
   Sidebar: {
     paddingTop: '16px',
     paddingBottom: '16px',

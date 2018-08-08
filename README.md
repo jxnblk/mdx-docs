@@ -14,10 +14,21 @@ npm i -D mdx-docs
 - :gear: Component-based API
 - :nail_care: Customizable themes
 
+## Getting Started
+
+## Customizing
+
+## Docs
+
+### Prior Art
+
+- [Compositor x0][]
+
+[Compositor x0]: https://compositor.io/x0
 
 ---
 
 - [ ] make `withRouter` optional (React API)
 - [ ] custom templates
-
+- [ ] react-syntax-highlighter
 

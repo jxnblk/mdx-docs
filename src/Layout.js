@@ -89,6 +89,8 @@ const MenuButton = styled.button([], {
   }),
 )
 
+const Root = styled(Flex)([], css('Layout'))
+
 export default class Layout extends React.Component {
   state = {
     menu: false
@@ -105,7 +107,7 @@ export default class Layout extends React.Component {
     const { menu } = this.state
 
     return (
-      <Flex>
+      <Root>
         {sidebar && (
           <React.Fragment>
             <MenuButton
@@ -130,7 +132,7 @@ export default class Layout extends React.Component {
             {children}
           </Container>
         </Main>
-      </Flex>
+      </Root>
     )
   }
 }
