@@ -26,6 +26,7 @@
     "get-port": "^4.0.0",
     "gray-matter": "^4.0.1",
     "grid-styled": "^5.0.2",
+    "html-minifier": "^3.5.19",
     "is-absolute-url": "^2.1.0",
     "koa": "^2.5.2",
     "koa-static": "^5.0.0",
@@ -56,5 +57,8 @@
   },
   "devDependencies": {
     "rebass": "^2.1.0"
+  },
+  "mdx-docs": {
+    "_template": "docs/_html.js"
   }
 }
