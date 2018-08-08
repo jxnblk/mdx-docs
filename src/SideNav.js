@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import sortby from 'lodash.sortby'
 import { NavLink } from './components'
+import { withRoutes } from './route-context'
 
-export default class Sidenav extends React.Component {
+export default withRoutes(class Sidenav extends React.Component {
   static propTypes = {
     order: PropTypes.array
   }
@@ -36,4 +37,4 @@ export default class Sidenav extends React.Component {
       </React.Fragment>
     )
   }
-}
+})

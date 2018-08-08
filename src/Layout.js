@@ -5,6 +5,7 @@ import { themeGet } from 'styled-system'
 import { Burger } from 'reline'
 import SideNav from './SideNav'
 import Pagination from './Pagination'
+import { modes } from './constants'
 
 const breakpoint = props =>
   `@media screen and (min-width: ${themeGet('breakpoints.0', '40em')(props)})`
@@ -95,8 +96,8 @@ const Root = styled(Flex)([], css('Layout'))
 
 export default class Layout extends React.Component {
   static defaultProps = {
-    sidebar: <SideNav />,
-    pagination: <Pagination />
+    // sidebar: <SideNav />,
+    // pagination: <Pagination />
   }
   state = {
     menu: false
@@ -109,12 +110,27 @@ export default class Layout extends React.Component {
   }
 
   render () {
-    const { sidebar, pagination, children } = this.props
+    const {
+      mode,
+      routes,
+      // todo
+      sidebar,
+      pagination,
+      children
+    } = this.props
     const { menu } = this.state
+
+    if (mode === modes.isolate) {
+      return (
+        <React.Fragment>
+          {children}
+        </React.Fragment>
+      )
+    }
 
     return (
       <Root>
-        {sidebar && (
+        {(
           <React.Fragment>
             <MenuButton
               title='Show Menu'
@@ -129,14 +145,18 @@ export default class Layout extends React.Component {
             <Sidebar
               open={menu}
               onClick={this.toggleMenu}>
-              {sidebar}
+              <SideNav
+                order={routes.navigation}
+              />
             </Sidebar>
           </React.Fragment>
         )}
         <Main fullWidth={!sidebar}>
           <Container>
             {children}
-            {pagination}
+            <Pagination
+              order={routes.navigation}
+            />
           </Container>
         </Main>
       </Root>

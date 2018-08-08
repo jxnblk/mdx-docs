@@ -50,14 +50,12 @@ export const getRoutes = () => {
   routes.App = app ? req(app.key).default : undefined
   routes.notFound = routes.find(route => route.name === '404')
 
-  routes.theme = routes.reduce((a, route) => ({
-    ...a,
-    ...(route.module.theme || {})
-  }), {})
-  routes.components = routes.reduce((a, route) => ({
-    ...a,
-    ...(route.module.components || {})
-  }), {})
+  const index = routes.find(route => route.path === '/')
+  const config = index ? index.module || {} : {}
+  routes.theme = config.theme || {}
+  routes.components = config.components || {}
+  routes.Provider = config.Provider || React.Fragment
+  routes.navigation = config.navigation || []
 
   return routes
 }

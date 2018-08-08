@@ -13,6 +13,10 @@ npm i -D mdx-docs
 - :x: No plugins
 - :gear: Component-based API
 - :nail_care: Customizable themes
+- Live code examples
+- Isolation mode
+- File system based routing
+- Static export
 
 ## Getting Started
 

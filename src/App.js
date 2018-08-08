@@ -59,6 +59,7 @@ export default class extends React.Component {
       ...defaultComponents,
       ...(routes.components || {})
     }
+    const { Provider = React.Fragment } = routes
 
     return (
       <Router
@@ -68,33 +69,35 @@ export default class extends React.Component {
         <ThemeProvider theme={theme}>
           <MDXProvider components={components}>
             <RoutesProvider {...this.props}>
-              <App
-                {...this.props}
-                {...this.state}
-                update={this.update}>
-                  <React.Fragment>
-                    <Switch>
-                      {routes.map(({ Component, ...route }) => (
+              <Provider>
+                <App
+                  {...this.props}
+                  {...this.state}
+                  update={this.update}>
+                    <React.Fragment>
+                      <Switch>
+                        {routes.map(({ Component, ...route }) => (
+                          <Route
+                            {...route}
+                            render={router => mode === modes.isolate ? (
+                              <Isolate examples={route.code} />
+                            ) : (
+                              <Component router={router} />
+                            )}
+                          />
+                        ))}
                         <Route
-                          {...route}
-                          render={router => mode === modes.isolate ? (
-                            <Isolate examples={route.code} />
-                          ) : (
-                            <Component router={router} />
+                          render={router => (
+                            <NotFound
+                              {...this.props}
+                              {...router}
+                            />
                           )}
                         />
-                      ))}
-                      <Route
-                        render={router => (
-                          <NotFound
-                            {...this.props}
-                            {...router}
-                          />
-                        )}
-                      />
-                    </Switch>
-                  </React.Fragment>
-              </App>
+                      </Switch>
+                    </React.Fragment>
+                </App>
+              </Provider>
               <Keyboard
                 update={this.update}
                 handlers={keyboardShortcuts}
