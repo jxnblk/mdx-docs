@@ -26,15 +26,23 @@ const cli = meow(`
 
   ${chalk.gray('Usage:')}
 
-    ${chalk.magenta('$ mdx-docs docs')}
+    ${chalk.gray('$')} ${chalk.magenta('mdx-docs docs')}
 
-    ${chalk.magenta('$ mdx-docs build docs')}
+    ${chalk.gray('$')} ${chalk.magenta('mdx-docs build docs')}
 
   ${chalk.gray('Options:')}
 
-    ${chalk.magenta('-p --port')}   Development server port
+    ${chalk.gray('Dev Options:')}
 
-    ${chalk.magenta('--no-open')}   Prevent from opening in default browser
+      ${chalk.magenta('-p --port')}     Development server port
+
+      ${chalk.magenta('--no-open')}     Prevent from opening in default browser
+
+    ${chalk.gray('Build Options:')}
+
+      ${chalk.magenta('-d --out-dir')}  Output directory
+
+      ${chalk.magenta('-t --template')} Path to custom HTML template
 
 
 `, {
@@ -53,6 +61,10 @@ const cli = meow(`
       type: 'string',
       alias: 'd',
       default: 'dist'
+    },
+    template: {
+      type: 'string',
+      alias: 't'
     },
     help: {
       type: 'boolean',
@@ -77,6 +89,10 @@ const opts = Object.assign({
 }, config, cli.flags)
 
 opts.outDir = path.resolve(opts.outDir)
+
+if (opts.template) {
+  opts.template = require(path.resolve(opts.template))
+}
 
 switch (cmd) {
   case 'build':
