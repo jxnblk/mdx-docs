@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 import { withMDXComponents } from '@mdx-js/tag/dist/mdx-provider'
+import withRouter from './withRouter'
 
 const Context = React.createContext()
 

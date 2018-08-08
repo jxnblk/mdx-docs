@@ -1,5 +1,6 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
+import withRouter from './withRouter'
 
 export default withRouter(class ScrollTop extends React.Component {
   componentDidUpdate (previous) {

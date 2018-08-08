@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as Router from 'react-router-dom'
+// import * as Router from 'react-router-dom'
+import { Link as RouterLink } from '@reach/router'
 import isAbsoluteURL from 'is-absolute-url'
 import LiveCode from './LiveCode'
+import RouterNavLink from './RouterNavLink'
 
 const css = key => props => props.theme[key]
 
@@ -23,9 +25,9 @@ const BaseLink = ({
   ...props
 }) => isAbsoluteURL(href)
   ? <a href={href} {...props} />
-  : <Router.Link to={href} {...props} />
+  : <RouterLink to={href} {...props} />
 
-export const NavLink = styled(Router.NavLink)([], css('NavLink'))
+export const NavLink = styled(RouterNavLink)([], css('NavLink'))
 
 const h1 = styled(heading('h1'))([], css('h1'))
 const h2 = styled(heading('h2'))([], css('h2'))

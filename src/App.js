@@ -1,10 +1,9 @@
 import React from 'react'
 import {
-  BrowserRouter,
-  StaticRouter,
-  Switch,
+  Router as ReachRouter,
+  ServerLocation,
   Route,
-} from 'react-router-dom'
+} from '@reach/router'
 import { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
 import theme from './themes/base'
@@ -18,7 +17,24 @@ import { modes } from './constants'
 import { toggleMode } from './updaters'
 
 const isBrowser = typeof document !== 'undefined'
-const Router = isBrowser ? BrowserRouter : StaticRouter
+// const Router = isBrowser ? BrowserRouter : StaticRouter
+
+const Router = ({
+  basename,
+  pathname,
+  ...props
+}) => {
+  if (isBrowser) {
+    return (
+      <ReachRouter basepath={basename} {...props} />
+    )
+  }
+  return (
+    <ServerLocation url={pathname}>
+      <ReachRouter basepath={basename} {...props} />
+    </ServerLocation>
+  )
+}
 
 const keys = {
   i: 73
@@ -50,9 +66,8 @@ export default class extends React.Component {
 
     return (
       <Router
-        basename={basename}
-        location={pathname}
-        context={{}}>
+        pathname={pathname}
+        basepath={basename}>
         <ThemeProvider theme={theme}>
           <MDXProvider components={components}>
             <React.Fragment>
@@ -65,7 +80,6 @@ export default class extends React.Component {
                   {...this.state}
                   update={this.update}>
                   <React.Fragment>
-                    <Switch>
                       {routes.map(({ Component, ...route }) => (
                         <Route
                           {...route}
@@ -77,11 +91,11 @@ export default class extends React.Component {
                         />
                       ))}
                       <Route
+                        default
                         render={() => (
                           <pre>404</pre>
                         )}
                       />
-                    </Switch>
                   </React.Fragment>
                 </DocsProvider>
               </App>
@@ -89,7 +103,7 @@ export default class extends React.Component {
                 update={this.update}
                 handlers={keyboardShortcuts}
               />
-              <ScrollTop />
+              {false && <ScrollTop />}
             </React.Fragment>
           </MDXProvider>
         </ThemeProvider>
