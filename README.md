@@ -29,6 +29,28 @@ npm i -D mdx-docs
 ---
 
 - [ ] make `withRouter` optional (React API)
-- [ ] custom templates
 - [ ] react-syntax-highlighter
+- [ ] Pagination
+- [ ] 404
 
+Docs
+
+- [ ] Getting Started
+- [ ] Writing MDX
+- [ ] Routing
+- [ ] Using React components
+- [ ] Custom App
+  - [ ] Theming
+  - [ ] Custom Navigation
+  - [ ] Custom layout
+  - [ ] Custom MDX components
+- [ ] Components
+  - [ ] Provider
+  - [ ] Layout
+  - [ ] SideNav
+  - [ ] LiveCode
+  - [ ] withDocs
+- [ ] Custom HTML template
+- [ ] Exporting
+- [ ] CLI Options
+- [ ] React API
