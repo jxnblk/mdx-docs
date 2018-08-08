@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { withMDXComponents } from '@mdx-js/tag/dist/mdx-provider'
 
-const Context = React.createContext()
+export const Context = React.createContext()
 
-export const DocsProvider = withRouter(withMDXComponents(class extends React.Component {
+export const DocsProvider = withRouter(class extends React.Component {
   static propTypes = {
     routes: PropTypes.array.isRequired,
     location: PropTypes.object.isRequired,
@@ -27,14 +26,16 @@ export const DocsProvider = withRouter(withMDXComponents(class extends React.Com
       </Context.Provider>
     )
   }
-}))
+})
 
 export const withDocs = Component => props =>
   <Context.Consumer>
-    {docs => (
+    {docs => {
+      // console.log('withDocs', docs)
+      return (
       <Component
         {...props}
         {...docs}
       />
-    )}
+    )}}
   </Context.Consumer>

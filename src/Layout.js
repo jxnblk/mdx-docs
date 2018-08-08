@@ -3,6 +3,8 @@ import { Flex, Box } from 'grid-styled'
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
 import { Burger } from 'reline'
+import SideNav from './SideNav'
+import Pagination from './Pagination'
 
 const breakpoint = props =>
   `@media screen and (min-width: ${themeGet('breakpoints.0', '40em')(props)})`
@@ -92,6 +94,10 @@ const MenuButton = styled.button([], {
 const Root = styled(Flex)([], css('Layout'))
 
 export default class Layout extends React.Component {
+  static defaultProps = {
+    sidebar: <SideNav />,
+    pagination: <Pagination />
+  }
   state = {
     menu: false
   }
@@ -103,7 +109,7 @@ export default class Layout extends React.Component {
   }
 
   render () {
-    const { sidebar, children } = this.props
+    const { sidebar, pagination, children } = this.props
     const { menu } = this.state
 
     return (
@@ -130,6 +136,7 @@ export default class Layout extends React.Component {
         <Main fullWidth={!sidebar}>
           <Container>
             {children}
+            {pagination}
           </Container>
         </Main>
       </Root>

@@ -58,12 +58,9 @@ export default class extends React.Component {
         context={{}}>
         <ThemeProvider theme={theme}>
           <MDXProvider components={components}>
-            <React.Fragment>
-              <App
-                {...this.props}
-                {...this.state}
-                update={this.update}>
-                <DocsProvider
+            <DocsProvider {...this.props} {...this.state} update={this.update}>
+              <React.Fragment>
+                <App
                   {...this.props}
                   {...this.state}
                   update={this.update}>
@@ -89,14 +86,14 @@ export default class extends React.Component {
                       />
                     </Switch>
                   </React.Fragment>
-                </DocsProvider>
-              </App>
-              <Keyboard
-                update={this.update}
-                handlers={keyboardShortcuts}
-              />
-              <ScrollTop />
-            </React.Fragment>
+                </App>
+                <Keyboard
+                  update={this.update}
+                  handlers={keyboardShortcuts}
+                />
+                <ScrollTop />
+              </React.Fragment>
+            </DocsProvider>
           </MDXProvider>
         </ThemeProvider>
       </Router>
