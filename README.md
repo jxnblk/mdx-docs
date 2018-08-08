@@ -16,23 +16,58 @@ npm i -D mdx-docs
 
 ## Getting Started
 
-## Customizing
+Install mdx-docs as a dev dependency and add run scripts to your `package.json`.
 
+```sh
+npm install --save-dev mdx-docs
+```
+
+```json
+"scripts": {
+  "start": "mdx-docs docs",
+  "build": "mdx-docs build docs"
+}
+```
+
+Add a `docs/` folder and run `npm start` to start the dev server,
+which should open in your default browser.
+
+Create a `docs/index.mdx` file and start writing markdown.
+
+```mdx
+# Hello MDX!
+```
+
+## MDX
+
+- importing
+
+
+## Routing
+## Customizing
+## Exporting
 ## Docs
 
 ### Prior Art
 
 - [Compositor x0][]
+- [create-docs][]
+- [live-doc][]
+- [Doctor Mark][]
+- [mdx-deck][]
+- [docz][]
 
 [Compositor x0]: https://compositor.io/x0
+[create-docs]: https://github.com/jxnblk/create-docs
+[live-doc]: https://github.com/jxnblk/live-doc
+[Doctor Mark]: https://github.com/jxnblk/doctor-mark
+[mdx-deck]: https://github.com/jxnblk/mdx-deck
+[docz]: https://github.com/pedronauck/docz
 
 ---
 
 - [ ] make `withRouter` optional (React API)
 - [ ] react-syntax-highlighter
-- [ ] Pagination
-- [ ] Fix context
-- [x] 404
 - [-] error overlay
 
 Docs
