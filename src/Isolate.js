@@ -3,11 +3,11 @@ import {
   LiveProvider,
   LivePreview
 } from 'react-live'
-import { withDocs } from './context'
+import withComponents from './withComponents'
 
 const transformCode = src => `<React.Fragment>${src}</React.Fragment>`
 
-export default withDocs(({
+export default withComponents(({
   components = {},
   examples = []
 }) => {

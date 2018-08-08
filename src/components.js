@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { space } from 'styled-system'
 import * as Router from 'react-router-dom'
 import isAbsoluteURL from 'is-absolute-url'
 import LiveCode from './LiveCode'
@@ -25,7 +26,7 @@ const BaseLink = ({
   ? <a href={href} {...props} />
   : <Router.Link to={href} {...props} />
 
-export const NavLink = styled(Router.NavLink)([], css('NavLink'))
+export const NavLink = styled(Router.NavLink)([], space, css('NavLink'))
 
 const h1 = styled(heading('h1'))([], css('h1'))
 const h2 = styled(heading('h2'))([], css('h2'))

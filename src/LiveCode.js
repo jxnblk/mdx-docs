@@ -6,7 +6,7 @@ import {
   LiveEditor,
   LiveError,
 } from 'react-live'
-import { withDocs } from './context'
+import withComponents from './withComponents'
 
 const css = key => props => props.theme[key]
 const transformCode = src => `<React.Fragment>${src}</React.Fragment>`
@@ -22,7 +22,7 @@ const Editor = styled(LiveEditor)([], {
 )
 const Err = styled(LiveError)([], css('LiveError'))
 
-export default withDocs(({
+export default withComponents(({
   components,
   code,
   ...props

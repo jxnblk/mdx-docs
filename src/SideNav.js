@@ -27,7 +27,9 @@ export default class Sidenav extends React.Component {
             key={link.key}
             to={link.path}
             exact={link.exact}
-            children={link.name}
+            px={3}
+            py={1}
+            children={link.title}
           />
         ))}
         {children}

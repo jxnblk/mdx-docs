@@ -1,5 +1,8 @@
 import React from 'react'
 import path from 'path'
+import titleize from 'titleize'
+
+const unhyphenate = str => str.replace(/(\w)(-)(\w)/g, '$1 $3')
 
 export const getRoutes = () => {
   const codeCtx = require.context('!!../lib/code-loader!' + DIRNAME, true, /\.mdx?$/)
@@ -20,9 +23,11 @@ export const getRoutes = () => {
       const pathname = route.dirname + '/' + (exact ? '' : route.name)
       const mod = req(route.key)
       const Component = mod.default
+      const title = titleize(unhyphenate(route.name))
 
       return {
         ...route,
+        title,
         exact,
         path: pathname,
         module: mod,

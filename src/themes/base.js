@@ -21,30 +21,29 @@ export default {
     fontWeight: 'bold',
     fontSize: '14px',
     textDecoration: 'none',
-    paddingTop: '8px',
-    paddingBottom: '8px',
-    paddingLeft: '16px',
-    paddingRight: '16px',
     '&.active': {
       color: themeGet('colors.blue', '#07c')(props)
     }
   }),
+  PaginationLink: {
+    fontSize: '16px'
+  },
   LiveCode: {
     border: '1px solid #eee',
     borderRadius: '4px'
   },
   LivePreview: {
-    padding: '8px'
+    padding: '16px'
   },
   LiveEditor: {
-    padding: '8px',
+    padding: '16px',
     outline: 'none',
     backgroundColor: '#eee'
   },
   LiveError: {
     fontFamily: 'Menlo, monospace',
     fontSize: '12px',
-    padding: '8px',
+    padding: '16px',
     color: 'white',
     backgroundColor: '#f00'
   },
