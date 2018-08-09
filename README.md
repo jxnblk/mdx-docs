@@ -42,12 +42,65 @@ Create a `docs/index.mdx` file and start writing markdown.
 # Hello MDX!
 ```
 
-## MDX
+## Using MDX
 
-- importing
+MDX lets you mix markdown with inline JSX to render React components.
+Write markdown as you normally would and use ES import syntax to use custom components in your document.
 
+```mdx
+import { Box } from 'grid-styled'
+
+# Hello MDX!
+
+<Box
+  p={3}
+  bg='tomato'>
+  This will render as a component
+</Box>
+```
 
 ## Routing
+
+## Live Code
+
+mdx-docs has built-in components to render JSX fenced code blocks as live previews with editable code, powered by [react-live][].
+To make a code block render as an editable example, use the `.jsx` language attribute (note the `.` prefix).
+
+````mdx
+Live code example:
+
+```.jsx
+<button>Beep</button>
+```
+````
+
+To include custom components in scope for the live code examples, export a `components` object from your `index.mdx` file.
+
+```js
+// example _components.js
+import { Button } from '../src'
+
+export default {
+  Button
+}
+```
+
+````mdx
+export { default as components } from './_components'
+
+```.jsx
+<Button>
+  Custom component
+</Button>
+```
+````
+
+Alternatively, custom components scope can be specified using the
+MDXProvider component or in a custom App
+
+[react-live]: https://github.com/formidable/react-live
+
+
 ## Customizing
 ## Exporting
 ## Docs
@@ -70,7 +123,6 @@ Create a `docs/index.mdx` file and start writing markdown.
 
 ---
 
-- [ ] make `withRouter` optional (React API)
 - [ ] react-syntax-highlighter
 - [-] error overlay
 
