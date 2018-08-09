@@ -5,12 +5,9 @@ import {
   Switch,
   Route,
 } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
-import { MDXProvider } from '@mdx-js/tag'
-import defaultTheme from './themes/base'
-import defaultComponents from './components'
+import Provider from './Provider'
 import { RoutesProvider } from './route-context'
-import Root from './Root'
+import Layout from './Layout'
 import Isolate from './Isolate'
 import Keyboard from './Keyboard'
 import ScrollTop from './ScrollTop'
@@ -46,66 +43,51 @@ export default class extends React.Component {
       basename,
     } = this.props
     const { mode } = this.state
-    const { App = Root } = routes
     const NotFound = routes.notFound
       ? routes.notFound.Component
       : () => <pre>404</pre>
-
-    const theme = {
-      ...defaultTheme,
-      ...(routes.theme || {})
-    }
-    const components = {
-      ...defaultComponents,
-      ...(routes.components || {})
-    }
-    const { Provider = React.Fragment } = routes
 
     return (
       <Router
         basename={basename}
         location={pathname}
         context={{}}>
-        <ThemeProvider theme={theme}>
-          <MDXProvider components={components}>
-            <RoutesProvider {...this.props}>
-              <Provider>
-                <App
-                  {...this.props}
-                  {...this.state}
-                  update={this.update}>
-                    <React.Fragment>
-                      <Switch>
-                        {routes.map(({ Component, ...route }) => (
-                          <Route
-                            {...route}
-                            render={router => mode === modes.isolate ? (
-                              <Isolate examples={route.code} />
-                            ) : (
-                              <Component router={router} />
-                            )}
-                          />
-                        ))}
-                        <Route
-                          render={router => (
-                            <NotFound
-                              {...this.props}
-                              {...router}
-                            />
-                          )}
-                        />
-                      </Switch>
-                    </React.Fragment>
-                </App>
-              </Provider>
-              <Keyboard
-                update={this.update}
-                handlers={keyboardShortcuts}
-              />
-              <ScrollTop />
-            </RoutesProvider>
-          </MDXProvider>
-        </ThemeProvider>
+        <Provider {...routes.config}>
+          <RoutesProvider {...this.props}>
+            <Layout
+              {...this.props}
+              {...this.state}
+              update={this.update}>
+              <React.Fragment>
+                <Switch>
+                  {routes.map(({ Component, ...route }) => (
+                    <Route
+                      {...route}
+                      render={router => mode === modes.isolate ? (
+                        <Isolate examples={route.code} />
+                      ) : (
+                        <Component router={router} />
+                      )}
+                    />
+                  ))}
+                  <Route
+                    render={router => (
+                      <NotFound
+                        {...this.props}
+                        {...router}
+                      />
+                    )}
+                  />
+                </Switch>
+              </React.Fragment>
+            </Layout>
+            <Keyboard
+              update={this.update}
+              handlers={keyboardShortcuts}
+            />
+            <ScrollTop />
+          </RoutesProvider>
+        </Provider>
       </Router>
     )
   }

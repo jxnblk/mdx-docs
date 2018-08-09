@@ -1,6 +1,7 @@
 import React from 'react'
 import path from 'path'
 import titleize from 'titleize'
+import Layout from './Layout'
 
 const unhyphenate = str => str.replace(/(\w)(-)(\w)/g, '$1 $3')
 
@@ -51,11 +52,14 @@ export const getRoutes = () => {
   routes.notFound = routes.find(route => route.name === '404')
 
   const index = routes.find(route => route.path === '/')
-  const config = index ? index.module || {} : {}
-  routes.theme = config.theme || {}
-  routes.components = config.components || {}
-  routes.Provider = config.Provider || React.Fragment
-  routes.navigation = config.navigation || []
+  routes.config = {
+    theme: {},
+    components: {},
+    Provider: React.Fragment,
+    Layout,
+    navigation: [],
+    ...(index ? index.module : {})
+  }
 
   return routes
 }

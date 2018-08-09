@@ -95,10 +95,6 @@ const MenuButton = styled.button([], {
 const Root = styled(Flex)([], css('Layout'))
 
 export default class Layout extends React.Component {
-  static defaultProps = {
-    // sidebar: <SideNav />,
-    // pagination: <Pagination />
-  }
   state = {
     menu: false
   }
@@ -113,9 +109,6 @@ export default class Layout extends React.Component {
     const {
       mode,
       routes,
-      // todo
-      sidebar,
-      pagination,
       children
     } = this.props
     const { menu } = this.state
@@ -145,18 +138,14 @@ export default class Layout extends React.Component {
             <Sidebar
               open={menu}
               onClick={this.toggleMenu}>
-              <SideNav
-                order={routes.navigation}
-              />
+              <SideNav />
             </Sidebar>
           </React.Fragment>
         )}
-        <Main fullWidth={!sidebar}>
+        <Main>
           <Container>
             {children}
-            <Pagination
-              order={routes.navigation}
-            />
+            <Pagination />
           </Container>
         </Main>
       </Root>

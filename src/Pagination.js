@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Flex, Box } from 'grid-styled'
 import styled from 'styled-components'
 import sortby from 'lodash.sortby'
@@ -10,16 +9,13 @@ const Root = styled(Flex)([], props => props.theme.Pagination)
 const PaginationLink = styled(NavLink)([], props => props.theme.PaginationLink)
 
 export default withRoutes(class Pagination extends React.Component {
-  static propTypes = {
-    order: PropTypes.array
-  }
   render () {
     const {
       routes = [],
       route = {},
-      order = []
     } = this.props
     const pages = routes.filter(route => route.name !== '404')
+    const order = routes.config.navigation || []
     const links = sortby(pages, route => {
       const index = order.indexOf(route.name)
       return index > -1 ? index : Infinity
