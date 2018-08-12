@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "babel src -d dist && npm run emotion",
     "emotion": "NODE_ENV=emotion babel src -d dist/emotion",
-    "start": "ok demo/App.js",
+    "start": "ok demo/App.js -p 8989",
     "test": "jest"
   },
   "keywords": [],
