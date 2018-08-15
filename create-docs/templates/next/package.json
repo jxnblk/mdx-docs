@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "next",
+    "build": "next build && next export"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^0.15.0",
+    "@mdx-js/mdx": "^0.15.0",
+    "@mdx-js/tag": "^0.15.0",
+    "babel-loader": "^7.1.5",
+    "gray-matter": "^4.0.1",
+    "mdx-docs": "^1.0.0-2",
+    "next": "^6.1.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "remark-autolink-headings": "^5.0.0",
+    "remark-emoji": "^2.0.1",
+    "remark-images": "^0.8.1",
+    "remark-slug": "^5.0.0",
+    "stringify-object": "^3.2.2",
+    "styled-components": "^3.3.3"
+  }
+}

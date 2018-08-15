@@ -1,0 +1,54 @@
+{
+  "name": "mdx-docs",
+  "version": "1.0.0-2",
+  "description": "Document and develop React components with MDX",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "babel src -d dist && npm run emotion",
+    "emotion": "NODE_ENV=emotion babel src -d dist/emotion",
+    "watch": "babel src -d dist --watch",
+    "start": "ok docs/App.js -p 8989",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "lodash.get": "^4.4.2",
+    "prop-types": "^15.6.2",
+    "react-live": "^1.11.0",
+    "rmdi": "^1.0.1"
+  },
+  "peerDependencies": {
+    "@mdx-js/tag": ">=0.15",
+    "next": "6.x",
+    "styled-components": "3.x"
+  },
+  "devDependencies": {
+    "@mdx-js/tag": "^0.15.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-rename-import": "^2.3.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "emotion": "^9.2.6",
+    "emotion-theming": "^9.2.6",
+    "jest": "^23.5.0",
+    "jest-styled-components": "^6.0.1",
+    "next": "^6.1.1",
+    "ok-cli": "^3.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-emotion": "^9.2.6",
+    "styled-components": "^3.4.2"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/**/*.js"
+    ],
+    "testURL": "http://localhost/",
+    "coverageReporters": [
+      "html"
+    ]
+  }
+}

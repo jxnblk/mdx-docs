@@ -1,0 +1,21 @@
+{
+  "name": "create-docs",
+  "version": "1.0.0-4",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "create-docs": "./cli.js"
+  },
+  "scripts": {
+    "test": "./cli.js"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "initit": "^1.0.0-2",
+    "meow": "^5.0.0",
+    "prompts": "^0.1.12"
+  }
+}
