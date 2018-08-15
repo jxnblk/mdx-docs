@@ -51,6 +51,15 @@ Live code example:
 
 [react-live]: https://github.com/formidable/react-live
 
+- Custom setup
+- Components
+  - Layout
+  - SideNav
+  - Pagination
+  - Header
+  - Root
+
+---
 
 ### Prior Art
 

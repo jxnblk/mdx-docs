@@ -139,10 +139,8 @@ export class Layout extends React.Component {
 
     return (
       <DocsContext.Provider value={context}>
-        {!header && (
-          <Fixed
-            top='8px'
-            left='8px'>
+        {sidebar && !header && (
+          <Fixed>
             <MenuButton />
           </Fixed>
         )}

@@ -1,6 +1,6 @@
 {
   "name": "mdx-docs",
-  "version": "1.0.0-0",
+  "version": "1.0.0-1",
   "description": "Document and develop React components with MDX",
   "main": "dist/index.js",
   "scripts": {
@@ -14,17 +14,18 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "@mdx-js/tag": "^0.15.0",
     "lodash.get": "^4.4.2",
     "prop-types": "^15.6.2",
     "react-live": "^1.11.0",
     "rmdi": "^1.0.1"
   },
   "peerDependencies": {
+    "@mdx-js/tag": ">=0.15",
     "next": "6.x",
     "styled-components": "3.x"
   },
   "devDependencies": {
+    "@mdx-js/tag": "^0.15.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-rename-import": "^2.3.0",
     "babel-preset-env": "^1.7.0",

@@ -1,9 +1,9 @@
-const remark = {
-  images: require('remark-images'),
-  emoji: require('remark-emoji'),
-  slug: require('remark-slug'),
-  autolinkHeadings: require('remark-autolink-headings'),
-}
+const mdPlugins = [
+  require('remark-images'),
+  require('remark-emoji'),
+  require('remark-slug'),
+  require('remark-autolink-headings'),
+]
 
 module.exports = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
@@ -15,15 +15,9 @@ module.exports = {
         {
           loader: '@mdx-js/loader',
           options: {
-            mdPlugins: [
-              remark.images,
-              remark.emoji,
-              remark.slug,
-              remark.autolinkHeadings
-            ]
+            mdPlugins
           }
         },
-        'mdx-fm-loader'
       ]
     })
 

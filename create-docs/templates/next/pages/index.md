@@ -11,7 +11,4 @@ npm init docs
 <h2>LiveEditor</h2>
 ```
 
-```!jsx
-<h2>LivePreview</h2>
-```
 
