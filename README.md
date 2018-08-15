@@ -11,7 +11,7 @@ npm init docs
 - :atom_symbol: Import and use React components
 - :gear: Component-based API
 - :nail_care: Customizable themes
-- :female_technologist: Live code examples
+- :computer: Live code examples
 - ▲ Built for Next.js
 
 ## Getting Started
