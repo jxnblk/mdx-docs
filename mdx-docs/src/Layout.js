@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Root from './Root'
 import MenuButton from './MenuButton'
+import Container from './Container'
 import { DocsContext } from './context'
-
-const css = key => props => props.theme[key]
+import css from './css'
 
 export const Flex = styled.div([], {
   display: 'flex',
@@ -87,13 +87,6 @@ export const Main = styled.div([], {
   css('LayoutMain')
 )
 
-export const Container = styled.div([], {
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  padding: '32px',
-  maxWidth: '768px'
-}, css('LayoutContainer'))
-
 export const Fixed = styled.div([], {
   position: 'fixed',
 }, ({ children, ...props }) => props)
@@ -101,6 +94,9 @@ export const Fixed = styled.div([], {
 export class Layout extends React.Component {
   static propTypes = {
     routes: PropTypes.array,
+    router: PropTypes.shape({
+      pathname: PropTypes.string
+    }),
     theme: PropTypes.object,
     components: PropTypes.object,
     sidebar: PropTypes.node,
@@ -126,15 +122,19 @@ export class Layout extends React.Component {
       header,
       pagination,
       routes,
+      router,
       children
     } = this.props
     const { menu } = this.state
+
+    const route = routes.find(route => route.path === router.pathname) || {}
 
     const context = {
       ...this.state,
       toggleMenu: this.toggleMenu,
       closeMenu: this.closeMenu,
       routes,
+      route
     }
 
     return (

@@ -16,7 +16,7 @@ const Preview = styled(LivePreview)([], css('LivePreview'))
 const Editor = styled(LiveEditor)([], {
   margin: 0,
   fontFamily: 'Menlo, monospace',
-  fontSize: '14px'
+  fontSize: '13px'
 },
   css('LiveEditor')
 )

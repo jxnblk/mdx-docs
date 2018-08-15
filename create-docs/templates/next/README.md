@@ -1,5 +1,7 @@
 
-# create-docs Next.js
+# mdx-docs Next.js
+
+This project was built with [mdx-docs][]
 
 ## Getting Started
 
@@ -19,6 +21,6 @@ npm start
 npm run build
 ```
 
-Built with [create-docs][]
+Built with [mdx-docs][]
 
-[create-docs]: https://github.com/jxnblk/create-docs
+[mdx-docs]: https://github.com/jxnblk/mdx-docs

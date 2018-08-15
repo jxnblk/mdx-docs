@@ -6,6 +6,8 @@ import { a } from './components'
 export const NavLink = styled(a)([], {
   display: 'block',
   color: 'inherit',
+  fontWeight: 'bold',
+  fontSize: '14px',
   textDecoration: 'none',
   paddingTop: '4px',
   paddingBottom: '4px',

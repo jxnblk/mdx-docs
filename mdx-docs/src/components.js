@@ -1,6 +1,8 @@
 import React from 'react'
-import LiveCode from './LiveCode'
+import styled from 'styled-components'
 import NextLink from 'next/link'
+import LiveCode from './LiveCode'
+import css from './css'
 
 // Link
 export const a = ({ children, className, ...props }) =>
@@ -9,6 +11,11 @@ export const a = ({ children, className, ...props }) =>
       {children}
     </a>
   </NextLink>
+
+export const Pre = styled.pre([], {
+  fontFamily: 'Menlo, monospace',
+  fontSize: '13px'
+}, css('pre'))
 
 export const pre = props => props.children
 
@@ -26,7 +33,7 @@ export const code = ({
     )
   }
   return (
-    <pre
+    <Pre
       {...props}
       className={className}
       children={children}
