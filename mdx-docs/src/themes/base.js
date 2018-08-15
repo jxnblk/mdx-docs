@@ -15,6 +15,10 @@ export const theme = {
     fontFamily: monospace,
     fontSize: '13px',
   },
+  Header: {
+    backgroundColor: 'white',
+    borderBottom: `1px solid ${lightGray}`,
+  },
   LayoutSidebar: {
     borderRight: `1px solid ${lightGray}`,
   },

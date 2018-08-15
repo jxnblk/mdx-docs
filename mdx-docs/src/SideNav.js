@@ -15,7 +15,7 @@ export const NavLink = styled(a)([], {
   paddingRight: '16px',
 }, props => props.theme.NavLink)
 
-export const SideNav = withDocs(({
+export default withDocs(({
   routes = [],
   ...props
 }) => (
@@ -29,5 +29,3 @@ export const SideNav = withDocs(({
     ))}
   </React.Fragment>
 ))
-
-export default SideNav
