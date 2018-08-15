@@ -1,6 +1,10 @@
 import React from 'react'
 import App, { Container } from 'next/app'
-import { Layout, SideNav } from 'mdx-docs'
+import {
+  Layout,
+  SideNav,
+  Pagination
+} from 'mdx-docs'
 
 const routes = [
   { name: 'Home', path: '/' },
@@ -11,21 +15,17 @@ const routes = [
 
 export default class MyApp extends App {
   static async getInitialProps ({ Component, router, ctx }) {
-    let pageProps = {}
+    let page = {}
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      page = await Component.getInitialProps(ctx)
     }
 
-    return { pageProps }
+    return { page }
   }
 
   render () {
-    const { Component, pageProps, router } = this.props
-    // doesn't appear to be a way to automatically get routes array...
-    // console.log(this.props, pageProps)
-
-    const route = routes.find(route => route.path === router.pathname)
+    const { Component, page } = this.props
 
     return (
       <Container>
@@ -35,9 +35,10 @@ export default class MyApp extends App {
           sidebar={(
             <SideNav />
           )}
-          route={route}
-          page={pageProps}>
-          <Component {...pageProps} />
+          pagination={(
+            <Pagination />
+          )}>
+          <Component {...page} />
         </Layout>
       </Container>
     )
