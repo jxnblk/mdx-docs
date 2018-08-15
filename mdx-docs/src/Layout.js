@@ -1,15 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Root from './Root'
-
-/*
- * - [ ] focus trap
- */
+import MenuButton from './MenuButton'
+import { DocsContext } from './context'
 
 const css = key => props => props.theme[key]
 
 export const Flex = styled.div([], {
-  display: 'flex'
+  display: 'flex',
+  width: '100%'
 },
   css('Layout')
 )
@@ -80,19 +80,34 @@ export const Sidebar = ({
     </SidebarRoot>
   </React.Fragment>
 
-export const Main = styled.div([],
+export const Main = styled.div([], {
+  width: '100%',
+  minHeight: '100vh'
+},
   css('LayoutMain')
 )
 
 export const Container = styled.div([], {
   marginLeft: 'auto',
   marginRight: 'auto',
-  outline: '1px solid tomato',
-  padding: '16px',
+  padding: '32px',
   maxWidth: '768px'
 }, css('LayoutContainer'))
 
+export const Fixed = styled.div([], {
+  position: 'fixed',
+}, ({ children, ...props }) => props)
+
 export class Layout extends React.Component {
+  static propTypes = {
+    routes: PropTypes.array,
+    theme: PropTypes.object,
+    components: PropTypes.object,
+    sidebar: PropTypes.node,
+    header: PropTypes.node,
+    pagination: PropTypes.node,
+  }
+
   state = {
     menu: false
   }
@@ -110,31 +125,48 @@ export class Layout extends React.Component {
       sidebar,
       header,
       pagination,
+      routes,
       children
     } = this.props
     const { menu } = this.state
 
+    const context = {
+      ...this.state,
+      toggleMenu: this.toggleMenu,
+      closeMenu: this.closeMenu,
+      routes,
+    }
+
     return (
-      <Root
-        theme={theme}
-        components={components}>
-        {header}
-        <Flex>
-          {sidebar && (
-            <Sidebar
-              open={menu}
-              onDismiss={this.closeMenu}>
-              {sidebar}
-            </Sidebar>
-          )}
-          <Main>
-            <Container>
-              {children}
+      <DocsContext.Provider value={context}>
+        {!header && (
+          <Fixed
+            top='8px'
+            left='8px'>
+            <MenuButton />
+          </Fixed>
+        )}
+        <Root
+          theme={theme}
+          components={components}>
+          {header}
+          <Flex>
+            {sidebar && (
+              <Sidebar
+                open={menu}
+                onDismiss={this.closeMenu}>
+                {sidebar}
+              </Sidebar>
+            )}
+            <Main>
+              <Container>
+                {children}
+              </Container>
               {pagination}
-            </Container>
-          </Main>
-        </Flex>
-      </Root>
+            </Main>
+          </Flex>
+        </Root>
+      </DocsContext.Provider>
     )
   }
 }

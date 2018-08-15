@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
 import get from 'lodash.get'
 import defaultComponents from './components'
+import defaultTheme from './themes/base'
 
 const Typography = styled.div([],
   props => ({
@@ -19,6 +20,10 @@ export class Root extends React.Component {
   static propTypes = {
     theme: PropTypes.object,
     components: PropTypes.object,
+  }
+
+  static defaultProps = {
+    theme: defaultTheme
   }
 
   render () {

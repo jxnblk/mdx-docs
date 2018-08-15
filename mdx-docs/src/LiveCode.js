@@ -31,8 +31,7 @@ export default withComponents(({
     scope={components}
     code={code}
     transformCode={transformCode}
-    mountStylesheet={false}
-  >
+    mountStylesheet={false}>
     <Root>
       <Preview />
       <Editor />

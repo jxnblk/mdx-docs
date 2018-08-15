@@ -1,7 +1,14 @@
 import React from 'react'
 import LiveCode from './LiveCode'
+import NextLink from 'next/link'
 
 // Link
+export const a = ({ children, className, ...props }) =>
+  <NextLink {...props}>
+    <a className={className}>
+      {children}
+    </a>
+  </NextLink>
 
 export const pre = props => props.children
 
@@ -28,6 +35,7 @@ export const code = ({
 }
 
 export const components = {
+  a,
   pre,
   code,
 }
