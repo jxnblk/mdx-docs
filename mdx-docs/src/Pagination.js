@@ -15,7 +15,7 @@ const PaginationLink = styled(a)([], {
   textDecoration: 'none',
 }, css('PaginationLink'))
 
-export const Pagination = withDocs(({
+export default withDocs(({
   routes = [],
   route
 }) => {
@@ -43,5 +43,3 @@ export const Pagination = withDocs(({
     </Root>
   )
 })
-
-export default Pagination

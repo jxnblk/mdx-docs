@@ -16,7 +16,7 @@ const Typography = styled.div([],
   })
 )
 
-export class Root extends React.Component {
+export default class Root extends React.Component {
   static propTypes = {
     theme: PropTypes.object,
     components: PropTypes.object,
@@ -48,5 +48,3 @@ export class Root extends React.Component {
     )
   }
 }
-
-export default Root

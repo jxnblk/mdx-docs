@@ -13,6 +13,9 @@ const Button = styled.button([], {
   borderRadius: '4px',
   '&:focus': {
     outline: 'none'
+  },
+  '@media screen and (min-width: 40em)': {
+    display: 'none'
   }
 }, props => props.theme.MenuButton)
 

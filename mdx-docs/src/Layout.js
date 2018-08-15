@@ -26,20 +26,14 @@ export const SidebarRoot = styled.div([], {
   transitionTimingFunction: 'ease-out',
 },
   props => ({
-    '@media screen and (max-width: 40em)': {
-      transform: `translateX(${props.open ? '0' : '-100%'})`
+    transform: `translateX(${props.open ? '0' : '-100%'})`,
+    '@media screen and (min-width: 40em)': {
+      transform: 'none'
     }
   }),
   props => props.css,
   css('LayoutSidebar')
 )
-
-SidebarRoot.defaultProps = {
-  css: {
-    top: 0,
-    width: '256px'
-  }
-}
 
 export const Overlay = styled.div([], {
   position: 'fixed',
@@ -59,23 +53,22 @@ export const SidebarSpacer = styled.div([], {
   }
 }, props => props.css)
 
-SidebarSpacer.defaultProps = {
-  css: {
-    width: '256px'
-  }
-}
-
 export const Sidebar = ({
   open,
   onDismiss,
   children,
+  top = 0,
+  width = '256px'
 }) =>
   <React.Fragment>
     {open && <Overlay onClick={onDismiss} />}
-    <SidebarSpacer />
+    <SidebarSpacer
+      css={{ width }}
+    />
     <SidebarRoot
       open={open}
-      onClick={onDismiss}>
+      onClick={onDismiss}
+      css={{ width, top }}>
       {children}
     </SidebarRoot>
   </React.Fragment>
@@ -102,6 +95,7 @@ export class Layout extends React.Component {
     sidebar: PropTypes.node,
     header: PropTypes.node,
     pagination: PropTypes.node,
+    sidebarWidth: PropTypes.number,
   }
 
   state = {
@@ -123,6 +117,7 @@ export class Layout extends React.Component {
       pagination,
       routes,
       router,
+      sidebarWidth,
       children
     } = this.props
     const { menu } = this.state
@@ -152,7 +147,9 @@ export class Layout extends React.Component {
             {sidebar && (
               <Sidebar
                 open={menu}
-                onDismiss={this.closeMenu}>
+                onDismiss={this.closeMenu}
+                top={header ? '48px' : undefined}
+                width={sidebarWidth}>
                 {sidebar}
               </Sidebar>
             )}
@@ -168,3 +165,5 @@ export class Layout extends React.Component {
     )
   }
 }
+
+export default Layout

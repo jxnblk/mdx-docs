@@ -3,6 +3,7 @@ import {
   Root,
   Layout,
   SideNav,
+  Header,
   Pagination,
 } from '../src'
 import Hello from './hello.mdx'
@@ -20,6 +21,11 @@ export default () =>
       pathname: '/getting-started'
     }}
     routes={routes}
+    header={(
+      <Header>
+        Header
+      </Header>
+    )}
     sidebar={(
       <SideNav />
     )}
