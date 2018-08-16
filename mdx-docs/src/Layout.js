@@ -94,7 +94,7 @@ export class Layout extends React.Component {
     components: PropTypes.object,
     sidebar: PropTypes.node,
     header: PropTypes.node,
-    pagination: PropTypes.node,
+    footer: PropTypes.node,
     sidebarWidth: PropTypes.number,
   }
 
@@ -114,7 +114,7 @@ export class Layout extends React.Component {
       components,
       sidebar,
       header,
-      pagination,
+      footer,
       routes,
       router,
       sidebarWidth,
@@ -157,7 +157,7 @@ export class Layout extends React.Component {
               <Container>
                 {children}
               </Container>
-              {pagination}
+              {footer}
             </Main>
           </Flex>
         </Root>

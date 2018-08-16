@@ -1,7 +1,7 @@
 
-# mdx-docs (WIP)
+# mdx-docs
 
-Document and develop React components with MDX
+Document and develop React components with [MDX][] and [Next.js][]
 
 ```sh
 npm init docs
@@ -10,14 +10,15 @@ npm init docs
 - :memo: Create documentation with markdown
 - :atom_symbol: Import and use React components
 - :gear: Component-based API
-- :nail_care: Customizable themes
 - :computer: Live code examples
+- :nail_care: Customizable themes
 - ▲ Built for Next.js
 
 ## Getting Started
 
-- `npm init docs`
-- Add to an existing app
+To create a new documentation site, run `npm init docs`.
+
+To add mdx-docs to an existing Next.js app, see the [Custom Setup](docs/custom-setup.md) docs.
 
 ## Using MDX
 
@@ -74,6 +75,9 @@ Live code example:
 [Doctor Mark]: https://github.com/jxnblk/doctor-mark
 [mdx-deck]: https://github.com/jxnblk/mdx-deck
 [docz]: https://github.com/pedronauck/docz
+
+[MDX]: https://github.com/mdx-js/mdx
+[Next.js]: https://github.com/zeit/next.js/
 
 ---
 

@@ -35,7 +35,7 @@ export default class MyApp extends App {
           sidebar={(
             <SideNav />
           )}
-          pagination={(
+          footer={(
             <Pagination />
           )}>
           <Component {...page} />

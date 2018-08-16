@@ -29,7 +29,7 @@ export default () =>
     sidebar={(
       <SideNav />
     )}
-    pagination={(
+    footer={(
       <Pagination />
     )}>
     <Hello />

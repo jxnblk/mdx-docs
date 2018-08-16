@@ -54,12 +54,14 @@ const cli = meow(`
 })
 
 const form = [
+  /*
   {
     type: 'select',
     name: 'template',
     message: 'Choose a base template',
     choices: templates.map(({ name }, i) => ({ title: name, value: i }))
   },
+  */
   {
     type: 'text',
     name: 'name',
