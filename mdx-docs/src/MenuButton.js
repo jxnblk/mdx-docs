@@ -25,7 +25,6 @@ export default withDocs(({
   <Button
     title='Toggle Menu'
     onClick={toggleMenu}>
-    <MenuIcon
-    />
+    <MenuIcon />
   </Button>
 ))

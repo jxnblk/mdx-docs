@@ -1,16 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import NextLink from 'next/link'
+import get from 'lodash.get'
 import LiveCode from './LiveCode'
 import css from './css'
 
 // Link
-export const a = ({ children, className, ...props }) =>
+export const a = styled(({ children, className, ...props }) =>
   <NextLink {...props}>
     <a className={className}>
       {children}
     </a>
   </NextLink>
+)([], props => ({
+  color: get(props.theme, 'colors.link')
+}), css('a'))
 
 export const Pre = styled.pre([], {
   fontFamily: 'Menlo, monospace',
