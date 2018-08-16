@@ -9,10 +9,24 @@ const Root = styled.div([], {
   height: '48px',
 }, css('Header'))
 
+const FixedRoot = styled.div([], {
+  position: 'fixed',
+  left: 0,
+  top: 0,
+  right: 0
+})
+
+const Fixed = ({ fixed, ...props }) => fixed
+  ? <FixedRoot {...props} />
+  : <React.Fragment {...props} />
+
 export default ({
+  fixed,
   children
 }) =>
-  <Root>
-    <MenuButton />
-    {children}
-  </Root>
+  <Fixed fixed={fixed}>
+    <Root>
+      <MenuButton />
+      {children}
+    </Root>
+  </Fixed>

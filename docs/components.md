@@ -69,11 +69,21 @@ Prop            | Type    | Description
 
 ### Theming
 
-- `font`
-- `lineHeight`
-- `colors`
-  - `text`
-  - `background`
+The following top-level keys can be used to set theming for the entire application.
+
+Theme key     | Description
+--------------|------------
+`font`        | Base font-family
+`lineHeight`  | Base line-height
+`colors`      | Object of colors for `text`, `background`, etc.
+
+#### Colors
+
+Color key     | Description
+--------------|------------
+`text`        | Foreground text color
+`background`  | Background color
+`link`        | Link color
 
 Use the `Layout` key in your theme to style the root element.
 
@@ -157,12 +167,19 @@ The Root component is used in the Layout component to provide `theme` and `compo
 You do not need to add this component when using the Layout component.
 
 Prop          | Type    | Description
+--------------|---------|------------
 `theme`       | Object  | Object of styles for theming components
 `components`  | Object  | Object of components for MDX and live code examples
 
 ## Container
 
 Element for centering content with a max-width.
+
+### Theming
+
+Theme key           | Description
+--------------------|-------------
+`LayoutContainer`   | The root element with a max-width of `768px`
 
 ## LiveCode
 
@@ -194,6 +211,12 @@ Theme key       | Description
 ## MenuButton
 
 The hamburger icon button displayed on mobile to toggle the visibility of the menu.
+
+### Theming
+
+Theme key     | Description
+--------------|-------------
+`MenuButton`  | The root button element
 
 ## MDX Components
 

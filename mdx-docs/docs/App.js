@@ -21,11 +21,6 @@ export default () =>
       pathname: '/getting-started'
     }}
     routes={routes}
-    header={(
-      <Header>
-        Header
-      </Header>
-    )}
     sidebar={(
       <SideNav />
     )}
