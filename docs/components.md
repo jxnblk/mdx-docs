@@ -99,7 +99,7 @@ export default {
 Other elements can be styled with the following keys
 
 Theme key         | Description
-------------------|---
+------------------|-----------
 `Layout`          | The root element of the component
 `LayoutSidebar`   | The left sidebar component
 `LayoutOverlay`   | The overlay that appears on small viewports when the menu is open

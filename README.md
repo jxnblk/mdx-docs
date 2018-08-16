@@ -16,7 +16,7 @@ npm init docs
 
 ## Getting Started
 
-To create a new documentation site, run `npm init docs`.
+To create a new documentation site, run `npm init docs` and follow the prompts.
 
 To add mdx-docs to an existing Next.js app, see the [Custom Setup](docs/custom-setup.md) docs.
 
@@ -52,13 +52,13 @@ Live code example:
 
 [react-live]: https://github.com/formidable/react-live
 
-- Custom setup
-- Components
-  - Layout
-  - SideNav
-  - Pagination
-  - Header
-  - Root
+## Documentation
+
+For further documentation see:
+
+- [Components](docs/components.md)
+- [Theming](docs/theming.md)
+- [Custom Setup](docs/custom-setup.md)
 
 ---
 
