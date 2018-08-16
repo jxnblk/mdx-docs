@@ -1,0 +1,19 @@
+{
+  "name": "next-mdx-docs",
+  "description": "Next.js plugin for MDX docs",
+  "version": "0.0.1-0",
+  "license": "MIT",
+  "author": "John Otander",
+  "main": "index.js",
+  "dependencies": {
+    "@mdx-js/loader": "^0.15.0",
+    "remark-autolink-headings": "^5.0.0",
+    "remark-emoji": "^2.0.1",
+    "remark-images": "^0.8.1",
+    "remark-slug": "^5.1.0",
+    "remark-unwrap-images": "0.0.2-0"
+  },
+  "peerDependencies": {
+    "@mdx-js/mdx": ">=0.15.0"
+  }
+}
