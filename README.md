@@ -62,12 +62,12 @@ For further documentation see:
 
 ---
 
-### Prior Art
+#### Prior Art
 
 - [Compositor x0][]
+- [mdx-deck][]
 - [live-doc][]
 - [Doctor Mark][]
-- [mdx-deck][]
 - [docz][]
 
 [Compositor x0]: https://compositor.io/x0
@@ -79,7 +79,5 @@ For further documentation see:
 [MDX]: https://github.com/mdx-js/mdx
 [Next.js]: https://github.com/zeit/next.js/
 
----
 
-- [ ] react-syntax-highlighter
-
+[MIT License](LICENSE.md)
