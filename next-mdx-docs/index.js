@@ -10,26 +10,18 @@ const defaultNextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx']
 }
 
-module.exports = ({
-  mdPlugins = [],
-  extension = /\.mdx?$/,
-  ...pluginOptions
-} = {}) => (nextConfig = {}) => {
-  const allMdPlugins = mdPlugins.concat(defaultMdPlugins)
-
-  const options = Object.assign({}, pluginOptions, {
-    mdPlugins: allMdPlugins
-  })
+module.exports = (providedOptions = {}) => (nextConfig = {}) => {
+  const allMdPlugins = defaultMdPlugins.concat(providedOptions.mdPlugins || [])
 
   return Object.assign({}, defaultNextConfig, nextConfig, {
     webpack(config, options) {
       config.module.rules.push({
-        test: extension,
+        test: providedOptions.extension || /\.mdx?$/,
         use: [
           options.defaultLoaders.babel,
           {
             loader: '@mdx-js/loader',
-            options: Object.assign({}, pluginOptions, {
+            options: Object.assign({}, pluginOptions, providedOptions, {
               mdPlugins: allMdPlugins
             })
           }
