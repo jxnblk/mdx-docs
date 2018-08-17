@@ -18,7 +18,9 @@ export const a = styled(({ children, className, ...props }) =>
 
 export const Pre = styled.pre([], {
   fontFamily: 'Menlo, monospace',
-  fontSize: '13px'
+  fontSize: '13px',
+  overflowX: 'auto',
+  maxWidth: '100%',
 }, css('pre'))
 
 export const pre = props => props.children
