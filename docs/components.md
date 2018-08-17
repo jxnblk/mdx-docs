@@ -4,6 +4,14 @@
 mdx-docs includes several components to quickly create custom documentation sites.
 All mdx-docs components' styles can be customized with [theming](theming.md).
 
+## Installation
+
+The mdx-docs components can be installed separately from `npm init docs` with the following:
+
+```sh
+npm i mdx-docs
+```
+
 ## Layout
 
 ```jsx
