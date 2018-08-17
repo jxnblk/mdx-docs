@@ -96,7 +96,7 @@ export class Layout extends React.Component {
     sidebar: PropTypes.node,
     header: PropTypes.node,
     footer: PropTypes.node,
-    sidebarWidth: PropTypes.number,
+    sidebarWidth: PropTypes.string,
   }
 
   state = {

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import MenuIcon from 'rmdi/lib/Menu'
 import { withDocs } from './context'
+import css from './css'
 
 const Button = styled.button([], {
   appearance: 'none',
@@ -17,7 +18,7 @@ const Button = styled.button([], {
   '@media screen and (min-width: 40em)': {
     display: 'none'
   }
-}, props => props.theme.MenuButton)
+}, css('MenuButton'))
 
 export default withDocs(({
   toggleMenu,

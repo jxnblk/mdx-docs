@@ -1,7 +1,7 @@
 
 # Custom Setup
 
-mdx-docs is a component library intended for use with Next.js.
+MDX Docs is a component library intended for use with Next.js.
 The quickest way to create a new setup is with the `npm init docs` command, but if you have an existing Next.js app, follow the instructions below.
 
 ## Add MDX support
@@ -35,9 +35,13 @@ module.exports = {
 }
 ```
 
-## Add mdx-docs components to a custom App
+## Add MDX Docs Components to a Custom App
 
-Using a [custom App][], import and use the mdx-docs components to wrap your entire application.
+Using a [custom App][], import and use the MDX Docs components to wrap your entire application.
+
+```sh
+npm i mdx-docs
+```
 
 ```jsx
 import React from 'react'
@@ -83,10 +87,10 @@ export default class MyApp extends App {
 
 ## Customize
 
-Use a custom theme or configure the mdx-docs components to change the look and feel of your site.
+Use a custom theme or configure the MDX Docs components to change the look and feel of your site.
 
-- [Theming](theming.md)
-- [Components](components.md)
+- [Theming](theming)
+- [Components](components)
 
 [mdx-next]: https://mdxjs.com/getting-started/next
 [custom App]: https://github.com/zeit/next.js/#custom-app

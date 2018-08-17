@@ -1,7 +1,7 @@
 
 # Theming
 
-Every component in mdx-docs can be customized by providing a `theme` prop to the root Layout component.
+Every component in MDX Docs can be customized by providing a `theme` prop to the root Layout component.
 The `theme` object includes top-level keys for typography and color and keys for adding style objects to specific components.
 
 ```js
