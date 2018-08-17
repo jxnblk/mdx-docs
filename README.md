@@ -17,6 +17,8 @@ npm init docs
 ## Getting Started
 
 To create a new documentation site, run `npm init docs` and follow the prompts.
+Once the application has been generated, see the [README.md](create-docs/templates/next/README.md)
+for more documentation.
 
 To add mdx-docs to an existing Next.js app, see the [Custom Setup](docs/custom-setup.md) docs.
 
