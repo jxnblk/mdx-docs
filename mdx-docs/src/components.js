@@ -56,6 +56,7 @@ export const components = {
   a,
   pre,
   code,
+  inlineCode,
 }
 
 export default components
