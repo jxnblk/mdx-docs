@@ -6,16 +6,13 @@ export default () =>
     width='1024'
     height='512'
   >
-    <defs>
-    </defs>
     <rect
-      width={512}
-      height={256}
+      width='512'
+      height='256'
       fill='black'
     />
     <text
-      id='mdx-docs'
-      x={256}
+      x='256'
       y={128 + 10}
       fill='white'
       textAnchor='middle'
