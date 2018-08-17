@@ -15,7 +15,7 @@ log.error = (...args) => {
 }
 
 const templates = [
-  { name: 'Next.js', path: 'jxnblk/create-docs/templates/next' },
+  { name: 'Next.js', path: 'jxnblk/mdx-docs/create-docs/templates/next' },
   // { name: 'Compositor x0', path: 'jxnblk/create-docs/templates/x0' },
 ]
 
@@ -84,7 +84,7 @@ const run = async opts => {
     process.exit(0)
   }
   const { name } = response
-  const template = templates[response.template]
+  const template = templates[response.template] || templates[0]
 
   log('creating docs...')
 
