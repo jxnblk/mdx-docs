@@ -1,6 +1,6 @@
 {
   "name": "mdx-docs",
-  "version": "1.0.0-3",
+  "version": "1.0.0-4",
   "description": "Document and develop React components with MDX",
   "main": "dist/index.js",
   "scripts": {

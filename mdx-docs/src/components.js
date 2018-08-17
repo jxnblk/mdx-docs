@@ -23,6 +23,11 @@ export const Pre = styled.pre([], {
   maxWidth: '100%',
 }, css('pre'))
 
+export const inlineCode = styled.code([], {
+  fontFamily: 'Menlo, monospace',
+  fontSize: '81.25%',
+}, css('code'))
+
 export const pre = props => props.children
 
 export const code = ({
