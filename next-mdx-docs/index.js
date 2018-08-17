@@ -15,7 +15,7 @@ module.exports = ({
   extension = /\.mdx?$/,
   ...pluginOptions
 } = {}) => (nextConfig = {}) => {
-  const allMdPlugins = [...mdPlugins, ...defaultMdPlugins]
+  const allMdPlugins = mdPlugins.concat(defaultMdPlugins)
 
   const options = Object.assign({}, pluginOptions, {
     mdPlugins: allMdPlugins
