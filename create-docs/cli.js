@@ -15,8 +15,8 @@ log.error = (...args) => {
 }
 
 const templates = [
-  { name: 'Next.js', path: 'jxnblk/mdx-docs/create-docs/templates/next' },
-  // { name: 'Compositor x0', path: 'jxnblk/create-docs/templates/x0' },
+  { name: 'Next.js', path: 'jxnblk/mdx-docs/templates/next' },
+  // { name: 'Compositor x0', path: 'jxnblk/mdx-docs/templates/x0' },
 ]
 
 const cli = meow(`
