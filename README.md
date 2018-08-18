@@ -5,6 +5,8 @@
 
 ![](docs/static/mdx-docs.gif)
 
+https://jxnblk.com/mdx-docs/
+
 ```sh
 npm init docs
 ```
