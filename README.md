@@ -58,13 +58,48 @@ Live code example:
 
 [react-live]: https://github.com/formidable/react-live
 
+## Components Scope
+
+To add components to scope for use in the live code examples,
+pass a `components` object to the [`Layout`](docs/pages/components.md#Layout) component.
+
+```jsx
+// example components
+import React from 'react'
+
+export default {
+  Box: props => (
+    <div
+      {...props}
+      style={{
+        padding: '32px',
+        backgroundColor: 'tomato'
+      }}
+    />
+  )
+}
+```
+
+```jsx
+// example _app.js
+<Layout
+  {...this.props}
+  components={components}
+>
+  <Component {...page} />
+</Layout>
+```
+
+The `components` object can also include components to render the HTML elements in MDX.
+
+
 ## Documentation
 
 For further documentation see:
 
-- [Components](docs/pages/components.md)
-- [Theming](docs/pages/theming.md)
-- [Custom Setup](docs/pages/custom-setup.md)
+- [Components](https://jxnblk.com/mdx-docs/components)
+- [Theming](https://jxnblk.com/mdx-docs/theming)
+- [Custom Setup](https://jxnblk.com/mdx-docs/custom-setup)
 
 ---
 
@@ -75,6 +110,12 @@ For further documentation see:
 - [live-doc][]
 - [Doctor Mark][]
 - [docz][]
+
+#### Related
+
+- [Next.js][]
+- [MDX][]
+- [react-live][]
 
 [Compositor x0]: https://compositor.io/x0
 [live-doc]: https://github.com/jxnblk/live-doc
