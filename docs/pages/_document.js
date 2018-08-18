@@ -1,6 +1,8 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 const BaseCSS = ({ css }) =>
   <style
     dangerouslySetInnerHTML={{
