@@ -91,6 +91,7 @@ export class Layout extends React.Component {
     router: PropTypes.shape({
       pathname: PropTypes.string
     }),
+    basepath: PropTypes.string,
     theme: PropTypes.object,
     components: PropTypes.object,
     sidebar: PropTypes.node,
@@ -118,6 +119,7 @@ export class Layout extends React.Component {
       footer,
       routes,
       router,
+      basepath,
       sidebarWidth,
       children
     } = this.props
@@ -130,7 +132,9 @@ export class Layout extends React.Component {
       toggleMenu: this.toggleMenu,
       closeMenu: this.closeMenu,
       routes,
-      route
+      route,
+      // ideally this goes away with react-router support
+      basepath,
     }
 
     return (
