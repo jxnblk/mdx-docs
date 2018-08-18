@@ -3,6 +3,18 @@
 
 Document and develop React components with [MDX][] and [Next.js][]
 
+<video
+  src='https://s3.amazonaws.com/jxnblk/mdx-docs.mp4'
+  autoPlay
+  playsInline
+  muted
+  loop
+  style={{
+    maxWidth: '100%',
+    borderRadius: '8px'
+  }}
+/>
+
 ```sh
 npm init docs
 ```
