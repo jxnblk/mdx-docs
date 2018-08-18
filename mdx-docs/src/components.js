@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import NextLink from 'next/link'
 import get from 'lodash.get'
+import isAbsoluteURL from 'is-absolute-url'
 import LiveCode from './LiveCode'
 import css from './css'
 import { withDocs } from './context'
@@ -26,7 +27,7 @@ export const a = styled(withDocs(({
 }) =>
   <NextLink {...props}
     href={href}
-    as={isProd ? basepath + href : href}>
+    as={isProd && !isAbsoluteURL(href) ? basepath + href : href}>
     <a className={className}>
       {children}
     </a>
