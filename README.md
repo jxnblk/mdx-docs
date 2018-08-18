@@ -1,7 +1,7 @@
 
 # MDX Docs
 
-Document and develop React components with [MDX][] and [Next.js][]
+:memo: Document and develop React components with [MDX][] and [Next.js][]
 
 ![](docs/static/mdx-docs.gif)
 
