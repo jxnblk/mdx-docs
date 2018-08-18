@@ -13,7 +13,7 @@ export default () =>
     />
     <text
       x='256'
-      y={128 + 10}
+      y={128 + 12}
       fill='white'
       textAnchor='middle'
       style={{
