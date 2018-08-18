@@ -18,8 +18,15 @@ export const a = styled(({ children, className, ...props }) =>
 
 export const Pre = styled.pre([], {
   fontFamily: 'Menlo, monospace',
-  fontSize: '13px'
+  fontSize: '13px',
+  overflowX: 'auto',
+  maxWidth: '100%',
 }, css('pre'))
+
+export const inlineCode = styled.code([], {
+  fontFamily: 'Menlo, monospace',
+  fontSize: '81.25%',
+}, css('code'))
 
 export const pre = props => props.children
 
@@ -49,6 +56,7 @@ export const components = {
   a,
   pre,
   code,
+  inlineCode,
 }
 
 export default components

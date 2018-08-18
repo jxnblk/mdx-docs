@@ -1,12 +1,12 @@
 
 # Components
 
-mdx-docs includes several components to quickly create custom documentation sites.
-All mdx-docs components' styles can be customized with [theming](theming.md).
+MDX Docs includes several components to quickly create custom documentation sites.
+All MDX Docs components' styles can be customized with [theming](theming).
 
 ## Installation
 
-The mdx-docs components can be installed separately from `npm init docs` with the following:
+The MDX Docs components can be installed separately from `npm init docs` with the following:
 
 ```sh
 npm i mdx-docs
@@ -127,6 +127,11 @@ Prop            | Type  | Description
 ### Theming
 
 The SideNav links can be styled with the `NavLink` theme key.
+
+## NavLink
+
+The NavLink component is the same component used in the SideNav component.
+Use this component to add matching navigation links outside of the SideNav component.
 
 ## Pagination
 

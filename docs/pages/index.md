@@ -17,10 +17,10 @@ npm init docs
 ## Getting Started
 
 To create a new documentation site, run `npm init docs` and follow the prompts.
-Once the application has been generated, see the [README.md](create-docs/templates/next/README.md)
+Once the application has been generated, see the [README.md](https://github.com/jxnblk/mdx-docs/create-docs/templates/next/README.md)
 for more documentation.
 
-To add MDX Docs to an existing Next.js app, see the [Custom Setup](docs/pages/custom-setup.md) docs.
+To add MDX Docs to an existing Next.js app, see the [Custom Setup](custom-setup) docs.
 
 ## Using MDX
 
@@ -52,34 +52,12 @@ Live code example:
 ```
 ````
 
+Below is a rendered example of using a live code fence:
+
+```.jsx
+<button>Beep</button>
+```
+
 [react-live]: https://github.com/formidable/react-live
-
-## Documentation
-
-For further documentation see:
-
-- [Components](docs/pages/components.md)
-- [Theming](docs/pages/theming.md)
-- [Custom Setup](docs/pages/custom-setup.md)
-
----
-
-#### Prior Art
-
-- [Compositor x0][]
-- [mdx-deck][]
-- [live-doc][]
-- [Doctor Mark][]
-- [docz][]
-
-[Compositor x0]: https://compositor.io/x0
-[live-doc]: https://github.com/jxnblk/live-doc
-[Doctor Mark]: https://github.com/jxnblk/doctor-mark
-[mdx-deck]: https://github.com/jxnblk/mdx-deck
-[docz]: https://github.com/pedronauck/docz
-
 [MDX]: https://github.com/mdx-js/mdx
 [Next.js]: https://github.com/zeit/next.js/
-
-
-[MIT License](LICENSE.md)

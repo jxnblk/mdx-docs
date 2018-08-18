@@ -75,6 +75,7 @@ export const Sidebar = ({
 
 export const Main = styled.div([], {
   width: '100%',
+  minWidth: 0,
   minHeight: '100vh'
 },
   css('LayoutMain')
@@ -95,7 +96,7 @@ export class Layout extends React.Component {
     sidebar: PropTypes.node,
     header: PropTypes.node,
     footer: PropTypes.node,
-    sidebarWidth: PropTypes.number,
+    sidebarWidth: PropTypes.string,
   }
 
   state = {

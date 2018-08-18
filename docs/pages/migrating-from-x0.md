@@ -1,7 +1,7 @@
 
 # Migrating from x0 to Next.js
 
-If you have an existing documentation site built with Compositor x0 v6 and up, follow these directions to migrate to using mdx-docs.
+If you have an existing documentation site built with Compositor x0 v6 and up, follow these directions to migrate to using MDX Docs.
 
 The quickest way to migrate over is to use `npm init docs` to start a new application setup in a new directory.
 
@@ -17,7 +17,7 @@ Since both x0 and this Next.js template both support MDX, copy the routes that y
 
 ## Remove Front Matter
 
-At this time, mdx-docs does not support front matter in markdown.
+At this time, MDX Docs does not support front matter in markdown.
 Remove any front-matter contents and consider using [ES export syntax instead](https://mdxjs.com/syntax#exports).
 
 ## Update the Custom App
