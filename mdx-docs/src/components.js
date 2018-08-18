@@ -4,15 +4,34 @@ import NextLink from 'next/link'
 import get from 'lodash.get'
 import LiveCode from './LiveCode'
 import css from './css'
+import { withDocs } from './context'
+
+// remove with react-router support
+const isProd = process.env.NODE_ENV === 'production'
 
 // Link
-export const a = styled(({ children, className, ...props }) =>
-  <NextLink {...props}>
+export const a = styled(withDocs(({
+  children,
+  className,
+  // remove props from context
+  // this can be removed with react-router support
+  basepath,
+  href,
+  menu,
+  toggleMenu,
+  closeMenu,
+  routes,
+  route,
+  ...props
+}) =>
+  <NextLink {...props}
+    href={href}
+    as={isProd ? basepath + href : href}>
     <a className={className}>
       {children}
     </a>
   </NextLink>
-)([], props => ({
+))([], props => ({
   color: get(props.theme, 'colors.link')
 }), css('a'))
 
