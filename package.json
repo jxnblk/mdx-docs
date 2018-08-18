@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "name": "mdx-docs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  }
+}
