@@ -5,6 +5,7 @@ before_deploy:
   - cd docs
   - npm install
   - npm run build
+  - touch out/.nojekyll
 deploy:
   provider: pages
   skip_cleanup: true

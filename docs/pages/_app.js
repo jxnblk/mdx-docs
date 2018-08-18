@@ -8,12 +8,15 @@ import {
 import theme from '../src/theme'
 import components from '../src/components'
 
+const isProd = process.env.NODE_ENV === 'production'
+const prefix = isProd ? '/mdx-docs' : ''
+
 const routes = [
-  { name: 'MDX Docs', path: '/' },
-  { name: 'Theming', path: '/theming' },
-  { name: 'Components', path: '/components' },
-  { name: 'Custom Setup', path: '/custom-setup' },
-  { name: 'Migrating from x0', path: '/migrating-from-x0' },
+  { name: 'MDX Docs', path: prefix + '/' },
+  { name: 'Theming', path: prefix + '/theming' },
+  { name: 'Components', path: prefix + '/components' },
+  { name: 'Custom Setup', path: prefix + '/custom-setup' },
+  { name: 'Migrating from x0', path: prefix + '/migrating-from-x0' },
   { name: 'GitHub', path: 'https://github.com/jxnblk/mdx-docs' },
 ]
 
