@@ -3,6 +3,8 @@
 
 Document and develop React components with [MDX][] and [Next.js][]
 
+![](docs/static/mdx-docs.gif)
+
 ```sh
 npm init docs
 ```
