@@ -9,6 +9,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GH_TOKEN
-  local_dir: .
+  local_dir: docs/out
   on:
     branch: master
