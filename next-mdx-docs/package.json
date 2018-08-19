@@ -1,7 +1,7 @@
 {
   "name": "next-mdx-docs",
   "description": "Next.js plugin for MDX docs",
-  "version": "0.0.1-1",
+  "version": "0.0.1-2",
   "license": "MIT",
   "author": "John Otander",
   "main": "index.js",
