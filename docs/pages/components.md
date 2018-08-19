@@ -2,7 +2,7 @@
 # Components
 
 MDX Docs includes several components to quickly create custom documentation sites.
-All MDX Docs components' styles can be customized with [theming](theming).
+All MDX Docs components' styles can be customized with [theming](theming.md).
 
 ## Installation
 
@@ -197,7 +197,7 @@ Theme key           | Description
 
 ## LiveCode
 
-Wrapper around [react-live][] for rendering fenced code blocks as live code examples.
+Wrapper around [react-live](https://github.com/FormidableLabs/react-live) for rendering fenced code blocks as live code examples.
 Any code block with the `.jsx` language attribute will render a sandbox, with the `components` object in scope.
 
 This component is rendered by the default `components.code` when wrapping an application with the Layout or Root components.
