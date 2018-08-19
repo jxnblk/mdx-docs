@@ -89,8 +89,8 @@ export default class MyApp extends App {
 
 Use a custom theme or configure the MDX Docs components to change the look and feel of your site.
 
-- [Theming](theming)
-- [Components](components)
+- [Theming](theming.md)
+- [Components](components.md)
 
 [mdx-next]: https://mdxjs.com/getting-started/next
 [custom App]: https://github.com/zeit/next.js/#custom-app

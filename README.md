@@ -45,7 +45,7 @@ import { Box } from 'grid-styled'
 
 ## Live Code
 
-MDX Docs has built-in components to render JSX fenced code blocks as live previews with editable code, powered by [react-live][].
+MDX Docs has built-in components to render JSX fenced code blocks as live previews with editable code, powered by [react-live](https://github.com/FormidableLabs/react-live).
 To make a code block render as an editable example, use the `.jsx` language attribute (note the `.` prefix).
 
 ````mdx
@@ -56,7 +56,7 @@ Live code example:
 ```
 ````
 
-[react-live]: https://github.com/formidable/react-live
+[react-live]: https://github.com/FormidableLabs/react-live
 
 ## Components Scope
 
@@ -115,7 +115,7 @@ For further documentation see:
 
 - [Next.js][]
 - [MDX][]
-- [react-live][]
+- [react-live](https://github.com/FormidableLabs/react-live)
 
 [Compositor x0]: https://compositor.io/x0
 [live-doc]: https://github.com/jxnblk/live-doc
