@@ -25,10 +25,11 @@ export const a = styled(withDocs(({
   route,
   ...props
 }) =>
-  <NextLink {...props}
+  <NextLink
+    {...props}
     href={href}
     as={isProd && !isAbsoluteURL(href) ? basepath + href : href}>
-    <a className={className}>
+    <a className={[className, (href === route.path && 'active')].filter(Boolean).join(' ')}>
       {children}
     </a>
   </NextLink>

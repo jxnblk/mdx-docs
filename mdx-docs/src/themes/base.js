@@ -44,6 +44,9 @@ export const theme = {
     color: 'white',
     backgroundColor: red
   },
+  MenuButton: {
+    padding: '8px'
+  }
 }
 
 export default theme

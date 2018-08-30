@@ -7,7 +7,7 @@
     "prepare": "babel src -d dist && npm run emotion",
     "emotion": "NODE_ENV=emotion babel src -d dist/emotion",
     "watch": "babel src -d dist --watch",
-    "start": "ok docs/App.js -p 8989",
+    "start": "mdx-go docs -p 8989",
     "test": "jest"
   },
   "keywords": [],
@@ -36,8 +36,8 @@
     "emotion-theming": "^9.2.6",
     "jest": "^23.5.0",
     "jest-styled-components": "^6.0.1",
+    "mdx-go": "^1.0.5",
     "next": "^6.1.1",
-    "ok-cli": "^3.1.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-emotion": "^9.2.6",

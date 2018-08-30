@@ -139,15 +139,15 @@ export class Layout extends React.Component {
 
     return (
       <DocsContext.Provider value={context}>
-        {sidebar && !header && (
-          <Fixed>
-            <MenuButton />
-          </Fixed>
-        )}
         <Root
           theme={theme}
           components={components}>
           {header}
+          {sidebar && !header && (
+            <Fixed>
+              <MenuButton />
+            </Fixed>
+          )}
           <Flex>
             {sidebar && (
               <Sidebar
