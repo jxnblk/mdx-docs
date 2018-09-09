@@ -29,10 +29,10 @@ npm init docs
 ## Getting Started
 
 To create a new documentation site, run `npm init docs` and follow the prompts.
-Once the application has been generated, see the [README.md](https://github.com/jxnblk/mdx-docs/create-docs/templates/next/README.md)
+Once the application has been generated, see the [README.md](https://github.com/jxnblk/mdx-docs/blob/master/next-mdx-docs/README.md)
 for more documentation.
 
-To add MDX Docs to an existing Next.js app, see the [Custom Setup](custom-setup) docs.
+To add MDX Docs to an existing Next.js app, see the [Custom Setup](/custom-setup) docs.
 
 ## Using MDX
 
