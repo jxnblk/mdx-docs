@@ -11,7 +11,8 @@ import { withDocs } from './context'
 const isProd = process.env.NODE_ENV === 'production'
 
 // Link
-export const a = styled(withDocs(({
+export const a = NextLink
+export const __a = styled(withDocs(({
   children,
   className,
   // remove props from context

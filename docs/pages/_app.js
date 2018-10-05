@@ -1,5 +1,6 @@
 import React from 'react'
 import App, { Container } from 'next/app'
+import Head from 'next/head'
 import {
   Layout,
   SideNav,
@@ -34,9 +35,11 @@ export default class MyApp extends App {
   render () {
     const { Component, page } = this.props
 
-    // <title>MDX Docs</title>
     return (
       <Container>
+        <Head>
+          <title>MDX Docs</title>
+        </Head>
         <Layout
           {...this.props}
           basepath={basepath}

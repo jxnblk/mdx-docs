@@ -1,6 +1,8 @@
 
 # MDX Docs
 
+> Blockquote test
+
 Document and develop React components with [MDX][] and [Next.js][]
 
 <video
