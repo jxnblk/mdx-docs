@@ -8,6 +8,6 @@ RUN npm i
 RUN npm run prepare
 RUN npm t
 
-RUN cd docs && npm i && npm run build && mv docs/out /public
+RUN cd docs && npm i && npm run build && mv out /public
 
 COPY docs/static/* /public/
