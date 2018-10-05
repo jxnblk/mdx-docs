@@ -23,7 +23,7 @@
   },
   "peerDependencies": {
     "@mdx-js/tag": ">=0.15",
-    "next": "6.x",
+    "next": "7.x",
     "styled-components": "3.x"
   },
   "devDependencies": {
