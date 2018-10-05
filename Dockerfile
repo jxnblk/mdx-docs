@@ -10,5 +10,5 @@ COPY . .
 
 RUN cd docs && npm i && npm run build
 
-COPY docs/out /public
-COPY docs/static/* /public
+COPY docs/out /public/
+COPY docs/static/* /public/
