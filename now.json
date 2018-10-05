@@ -1,0 +1,8 @@
+{
+  "name": "MDX Docs",
+  "alias": [
+    "mdx-docs.now.sh"
+  ],
+  "public": true,
+  "type": "static"
+}

@@ -34,6 +34,7 @@ export default class MyApp extends App {
   render () {
     const { Component, page } = this.props
 
+    // <title>MDX Docs</title>
     return (
       <Container>
         <Layout

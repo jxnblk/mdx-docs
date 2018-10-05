@@ -6,17 +6,17 @@
     "card": "repng src/card.js -w 1024 -h 512 -d static -f card.png"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^0.15.0",
-    "babel-loader": "^7.1.5",
-    "mdx-docs": "^1.0.0-8",
-    "next": "^6.1.1",
+    "@mdx-js/mdx": "^0.15.5",
+    "babel-loader": "^8.0.4",
+    "mdx-docs": "^1.0.0-9",
+    "next": "^7.0.1",
     "next-mdx-docs": "0.0.1-0",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "styled-components": "^3.3.3"
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "styled-components": "^3.4.9"
   },
   "devDependencies": {
-    "repng": "^3.0.2"
+    "repng": "^3.1.0"
   }
 }
