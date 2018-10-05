@@ -3,7 +3,7 @@
   "scripts": {
     "start": "next",
     "build": "next build && next export",
-    "card": "repng src/card.js -w 1024 -h 512 -d static -f card.png"
+    "card": "npx repng src/card.js -w 1024 -h 512 -d static -f card.png"
   },
   "dependencies": {
     "@mdx-js/mdx": "^0.15.5",
@@ -16,8 +16,5 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "styled-components": "^3.4.9"
-  },
-  "devDependencies": {
-    "repng": "^3.1.0"
   }
 }
