@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "mdx-docs",
+  "name": "_mdx-docs",
   "scripts": {
-    "prepare": "lerna bootstrap",
+    "prepare": "lerna bootstrap --hoist",
     "clean": "npx lerna run clean",
     "test": "jest"
   },
