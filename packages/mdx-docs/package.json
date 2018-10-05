@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prepare": "babel src -d dist && npm run emotion",
+    "clean": "rm -r dist",
     "emotion": "NODE_ENV=emotion babel src -d dist/emotion",
     "watch": "babel src -d dist --watch",
     "start": "mdx-go docs -p 8989",
