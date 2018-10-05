@@ -2,12 +2,10 @@ FROM node:10-alpine
 
 WORKDIR /usr/src
 
-COPY package.json .
-COPY package-lock.json .
+COPY . .
 
 RUN npm ci
-
-COPY . .
+RUN npm t
 
 RUN cd docs && npm i && npm run build
 
