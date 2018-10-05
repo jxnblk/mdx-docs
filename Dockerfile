@@ -4,7 +4,7 @@ WORKDIR /usr/src
 
 COPY . .
 
-RUN npm ci
+RUN npm i
 RUN npm t
 
 RUN cd docs && npm i && npm run build
