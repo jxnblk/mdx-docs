@@ -1,0 +1,23 @@
+import { MDXLiveProvider } from '../src'
+
+export const Root = props =>
+  <MDXLiveProvider>
+    <div
+      {...props}
+      style={{
+        maxWidth: 768,
+        margin: 'auto',
+        padding: '2em',
+      }}
+    />
+  </MDXLiveProvider>
+
+# MDX Live
+
+```jsx
+<Button>Not Live</Button>
+```
+
+```.jsx
+<h1>Live Code</h1>
+```

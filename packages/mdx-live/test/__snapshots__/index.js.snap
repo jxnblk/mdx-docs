@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LiveCode renders 1`] = `
+<div
+  className="react-live"
+  style={
+    Object {
+      "border": "1px solid #f3f3f9",
+      "borderRadius": 2,
+      "marginBottom": "1em",
+      "marginTop": "1em",
+    }
+  }
+>
+  <div
+    className="react-live-preview"
+    style={
+      Object {
+        "padding": "1em",
+      }
+    }
+  >
+    <h1>
+      hello
+    </h1>
+  </div>
+  <pre
+    className="prism-code"
+    contentEditable={true}
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>h1</span><span class=\\"token punctuation\\">></span></span>hello<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>h1</span><span class=\\"token punctuation\\">></span></span>",
+      }
+    }
+    onChange={[Function]}
+    onClick={[Function]}
+    onCompositionEnd={[Function]}
+    onCompositionStart={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    spellCheck="false"
+    style={
+      Object {
+        "backgroundColor": "#f6f6ff",
+        "fontFamily": "Menlo, monospace",
+        "fontSize": 14,
+        "margin": 0,
+        "outline": "none",
+        "overflowX": "auto",
+        "padding": "1em",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`withMDXLive renders LiveCode 1`] = `
+<div
+  className="react-live language-.jsx"
+  style={
+    Object {
+      "border": "1px solid #f3f3f9",
+      "borderRadius": 2,
+      "marginBottom": "1em",
+      "marginTop": "1em",
+    }
+  }
+>
+  <div
+    className="react-live-preview"
+    style={
+      Object {
+        "padding": "1em",
+      }
+    }
+  >
+    <h1>
+      hello
+    </h1>
+  </div>
+  <pre
+    className="prism-code"
+    contentEditable={true}
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>h1</span><span class=\\"token punctuation\\">></span></span>hello<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>h1</span><span class=\\"token punctuation\\">></span></span>",
+      }
+    }
+    onChange={[Function]}
+    onClick={[Function]}
+    onCompositionEnd={[Function]}
+    onCompositionStart={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    spellCheck="false"
+    style={
+      Object {
+        "backgroundColor": "#f6f6ff",
+        "fontFamily": "Menlo, monospace",
+        "fontSize": 14,
+        "margin": 0,
+        "outline": "none",
+        "overflowX": "auto",
+        "padding": "1em",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`withMDXLive renders normal tag 1`] = `
+<pre>
+  &lt;h1&gt;hello&lt;/h1&gt;
+</pre>
+`;
