@@ -1,8 +1,9 @@
 {
   "private": true,
+  "name": "mdx-docs",
   "scripts": {
     "prepare": "lerna bootstrap",
-    "clean": "lerna run clean",
+    "clean": "npx lerna run clean",
     "test": "jest"
   },
   "devDependencies": {
