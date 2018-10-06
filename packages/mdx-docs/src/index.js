@@ -1,7 +1,5 @@
-export * as themes from './themes'
 export { default as components } from './components'
 export { withDocs } from './context'
-export { default as Root } from './Root'
 export {
   Layout,
   Sidebar,
@@ -11,8 +9,5 @@ export {
   MenuToggle,
   Navbar,
 } from './Layout'
-export {
-  default as SideNav,
-  NavLink
-} from './SideNav'
-export { default as Pagination } from './Pagination'
+export { SideNav, NavLink } from './SideNav'
+export { Pagination } from './Pagination'

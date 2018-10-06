@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Root from './Root'
+import MDXStyle from 'mdx-style'
+import { base as baseTheme } from 'mdx-style/themes'
 import { DocsContext, withDocs } from './context'
+import defaultComponents from './components'
 
 const MediaContext = React.createContext()
 
@@ -358,6 +360,8 @@ export class Layout extends React.Component {
       breakpoint,
       routes = [],
       router = {},
+      components = {},
+      theme = {},
       ...props
     } = this.props
 
@@ -386,11 +390,22 @@ export class Layout extends React.Component {
           }}>
           {menuToggle}
           {navbar}
-          <Root {...props}>
+          <MDXStyle
+            css={{
+              ...baseTheme,
+              // todo: fix
+              code: {},
+              // ...theme
+            }}
+            components={{
+              ...defaultComponents,
+              ...components
+            }}
+            {...props}>
             <Flex>
               {columns}
             </Flex>
-          </Root>
+          </MDXStyle>
         </MediaProvider>
       </DocsContext.Provider>
     )

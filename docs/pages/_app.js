@@ -6,7 +6,6 @@ import {
   SideNav,
   Pagination
 } from 'mdx-docs'
-import theme from '../src/theme'
 import components from '../src/components'
 
 const routes = [
@@ -38,7 +37,6 @@ export default class MyApp extends App {
           <title>MDX Docs</title>
         </Head>
         <Layout
-          theme={theme}
           components={components}
           routes={routes}
           {...this.props}>
