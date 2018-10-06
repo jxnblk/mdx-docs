@@ -23,8 +23,6 @@ export default withDocs(({
   const previous = routes[index - 1]
   const next = routes[index + 1]
 
-  console.log(routes, previous)
-
   return (
     <Root>
       <Container>
