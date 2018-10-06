@@ -36,6 +36,8 @@ module.exports = {
     config.resolve.alias['@mdx-js/tag'] = path.join(__dirname, './node_modules/@mdx-js/tag')
 
     config.resolve.alias['mdx-docs'] = path.join(__dirname, '../packages/mdx-docs/src')
+    config.resolve.alias['mdx-style'] = path.join(__dirname, '../packages/mdx-style/src')
+    config.resolve.alias['mdx-live'] = path.join(__dirname, '../packages/mdx-live/src')
 
     return config
   },

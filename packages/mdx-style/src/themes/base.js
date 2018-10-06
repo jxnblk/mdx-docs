@@ -12,8 +12,6 @@ export default {
     '--lightgray': lightgray,
     '--gray': gray,
     '--link': blue,
-    '--code': blue,
-    '--pre': blue,
   },
   a: {
     color: 'var(--link)'
@@ -95,20 +93,19 @@ export default {
     marginTop: '32px',
     marginBottom: '32px',
   },
-  // how should these work?
-  code: {
+  pre: {
     fontFamily: 'Menlo, monospace',
     fontSize: '14px',
     padding: '16px',
     marginTop: '32px',
     marginBottom: '32px',
     overflowX: 'auto',
-    color: 'var(--code)',
     backgroundColor: 'var(--lightgray)',
   },
-  inlineCode: {
+  code: {
     fontFamily: 'Menlo, monospace',
-    color: 'var(--code)'
+    fontSize: '14px',
+    backgroundColor: 'var(--lightgray)',
   },
   img: {
     maxWidth: '100%',

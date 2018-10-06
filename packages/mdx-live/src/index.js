@@ -76,13 +76,15 @@ LiveCode.defaultProps = {
 const REG = /language\-\.jsx/
 
 export const withMDXLive = Fallback => ({
+  pre: Pre,
   match = REG,
   children,
   metaString,
   ...props
 }) => {
   const isLive = match.test(props.className)
-  if (!isLive) return <Fallback {...props} children={children} />
+  const Comp = Pre || Fallback
+  if (!isLive) return <Comp {...props} children={children} />
 
   const code = React.Children.toArray(children).join('\n')
 
