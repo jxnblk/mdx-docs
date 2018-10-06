@@ -8,7 +8,6 @@ export {
   NavLink
 } from './SideNav'
 export { default as Pagination } from './Pagination'
-export { default as LiveCode } from './LiveCode'
 export { default as Header } from './Header'
 
 export { default as MenuButton } from './MenuButton'

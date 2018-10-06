@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import get from 'lodash.get'
-import LiveCode from './LiveCode'
+import { withMDXLive } from 'mdx-live'
 import css from './css'
 
 export const a = ({ as: Tag = 'a', ...props }) =>
@@ -20,27 +20,7 @@ export const inlineCode = styled.code([], {
 }, css('code'))
 
 export const pre = props => props.children
-
-export const code = ({
-  children,
-  className = '',
-  ...props
-}) => {
-  const isEditable = className.includes('language-.jsx')
-  const code = React.Children.toArray(children).join('\n')
-  if (isEditable) {
-    return (
-      <LiveCode code={code} />
-    )
-  }
-  return (
-    <Pre
-      {...props}
-      className={className}
-      children={children}
-    />
-  )
-}
+export const code = withMDXLive(Pre)
 
 export const components = {
   a,

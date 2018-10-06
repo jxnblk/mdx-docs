@@ -13,6 +13,8 @@
   "license": "MIT",
   "dependencies": {
     "lodash.get": "^4.4.2",
+    "mdx-live": "^1.0.0-1",
+    "mdx-style": "^1.0.0-3",
     "prop-types": "^15.6.2",
     "react-live": "^1.11.0",
     "rmdi": "^1.0.1"
