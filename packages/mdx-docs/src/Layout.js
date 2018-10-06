@@ -344,11 +344,23 @@ export const toggle = state => ({ open: !state.open })
 export const close = state => ({ open: false })
 export const open = state => ({ open: true })
 
+export const getNextRoute = props => props.routes.find(route => route.path === props.router.pathname) || {}
+export const getReachRoute = props => props.routes.find(route => route.path === props.location) || {}
+
 export class Layout extends React.Component {
   static Sidebar = Sidebar
   static Main = Main
   static MenuToggle = MenuToggle
   static Navbar = Navbar
+
+  static propTypes = {
+    routes: PropTypes.array.isRequired,
+    getRoute: PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    getRoute: getNextRoute,
+  }
 
   state = {
     open: false,
@@ -357,15 +369,15 @@ export class Layout extends React.Component {
 
   render () {
     const {
-      breakpoint,
       routes = [],
-      router = {},
       components = {},
       theme = {},
+      getRoute,
       ...props
     } = this.props
 
-    const route = routes.find(route => route.path === router.pathname) || {}
+    const route = getRoute(this.props)
+
     const context = {
       layout: {
         ...this.state,
