@@ -2,7 +2,7 @@
 # Components
 
 MDX Docs includes several components to quickly create custom documentation sites.
-All MDX Docs components' styles can be customized with [theming](theming.md).
+All MDX Docs components' styles can be customized with [theming](/theming).
 
 ## Installation
 
