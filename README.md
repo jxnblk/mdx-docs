@@ -96,9 +96,10 @@ export default {
 // example _app.js
 <Layout
   {...this.props}
-  components={components}
->
-  <Component {...page} />
+  components={components}>
+  <Layout.Main>
+    <Component {...page} />
+  </Layout.Main>
 </Layout>
 ```
 
@@ -107,28 +108,27 @@ The `components` object can also include components to render the HTML elements 
 
 ## Documentation
 
-For further documentation see:
-
 - [Components](https://jxnblk.com/mdx-docs/components)
-- [Theming](https://jxnblk.com/mdx-docs/theming)
 - [Custom Setup](https://jxnblk.com/mdx-docs/custom-setup)
 
 ---
 
 #### Prior Art
 
-- [Compositor x0][]
-- [mdx-deck][]
-- [live-doc][]
-- [Doctor Mark][]
-- [docz][]
+[mdx-go][],
+[Compositor x0][],
+[mdx-deck][],
+[live-doc][],
+[Doctor Mark][],
+[docz][]
 
 #### Related
 
-- [Next.js][]
-- [MDX][]
-- [react-live](https://github.com/FormidableLabs/react-live)
+[Next.js][],
+[MDX][],
+[react-live](https://github.com/FormidableLabs/react-live)
 
+[mdx-go]: https://github.com/jxnblk/mdx-go
 [Compositor x0]: https://compositor.io/x0
 [live-doc]: https://github.com/jxnblk/live-doc
 [Doctor Mark]: https://github.com/jxnblk/doctor-mark
