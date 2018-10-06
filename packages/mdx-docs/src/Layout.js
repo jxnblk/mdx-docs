@@ -5,8 +5,6 @@ import { base as baseTheme } from 'mdx-style/themes'
 import { DocsContext, withDocs } from './context'
 import defaultComponents from './components'
 
-console.log(defaultComponents)
-
 const MediaContext = React.createContext()
 
 export const withMedia = Component => React.forwardRef((props, ref) =>
