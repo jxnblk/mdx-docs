@@ -7,6 +7,11 @@
 
 https://jxnblk.com/mdx-docs/
 
+[![Build Status][badge]][travis]
+[![Downloads][downloads-badge]][npm]
+[![Version][version-badge]][npm]
+[![MIT License][license]](LICENSE.md)
+
 ```sh
 npm init docs
 ```
@@ -17,6 +22,13 @@ npm init docs
 - :computer: Live code examples
 - :nail_care: Customizable themes
 - ▲ Built for Next.js
+
+[badge]: https://flat.badgen.net/travis/jxnblk/mdx-docs
+[travis]: https://travis-ci.org/jxnblk/mdx-docs
+[version-badge]: https://flat.badgen.net/npm/v/mdx-docs
+[downloads-badge]: https://flat.badgen.net/npm/dt/mdx-docs
+[npm]: https://npmjs.com/package/mdx-docs
+[license]: https://flat.badgen.net/badge/license/MIT/blue
 
 ## Getting Started
 
