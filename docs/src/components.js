@@ -13,19 +13,7 @@ const h6 = styled.h6([], css('h6'))
 const p = styled.p([], css('p'))
 const table = styled.table([], css('table'))
 
-const blockquote = props =>
-  <blockquote
-    {...props}
-    style={{
-      color: 'tomato',
-      fontWeight: 'bold',
-      fontSize: 32
-    }}
-  />
-
 export default {
-  blockquote,
-
   h1,
   h2,
   h3,
