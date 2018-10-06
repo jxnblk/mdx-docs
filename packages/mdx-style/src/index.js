@@ -30,19 +30,18 @@ export class MDXStyle extends React.Component {
         const style = props.css[key]
         const rule = objectStyle(style)
         styles.push(...rule.rules)
+
         if (key === 'root') {
           const component = createComponent('div', rule.className)
           return { ...a, [key]: component }
         }
-        // const base = key === 'inlineCode' ? 'code' : props.components[key] || key
-        // const base = props.components[key] || key
-        const base = key === 'pre' ? key : props.components[key] || key
 
+        const base = key === 'pre' ? key : props.components[key] || key
         const component = createComponent(base, rule.className)
+
         return { ...a, [key]: component }
       }, props.components)
 
-    // hack to work with mdx-live
     if (props.components.pre) {
       components.inlineCode = components.code
       const pre = props.components.pre
