@@ -5,7 +5,7 @@
 
 ![](docs/static/mdx-docs.gif)
 
-https://jxnblk.com/mdx-docs/
+https://mdx-docs.now.sh/
 
 [![Build Status][badge]][travis]
 [![Downloads][downloads-badge]][npm]
@@ -108,8 +108,8 @@ The `components` object can also include components to render the HTML elements 
 
 ## Documentation
 
-- [Components](https://jxnblk.com/mdx-docs/components)
-- [Custom Setup](https://jxnblk.com/mdx-docs/custom-setup)
+- [Components](https://mdx-docs.now.sh/components)
+- [Custom Setup](https://mdx-docs.now.sh/custom-setup)
 
 ---
 
