@@ -1,18 +1,34 @@
 import React from 'react'
-import styled from 'styled-components'
 import { withDocs } from './context'
 import withComponents from './withComponents'
-import css from './css'
-import { a } from './components'
+import { a as Link } from './components'
 
-const Root = styled.div([], { display: 'flex' }, css('Pagination'))
-const Spacer = styled.div([], { margin: 'auto' })
-const PaginationLink = styled(a)([], {
-  display: 'block',
-  color: 'inherit',
-  fontWeight: 'bold',
-  textDecoration: 'none',
-}, css('PaginationLink'))
+const Root = props =>
+  <div
+    {...props}
+    style={{
+      display: 'flex'
+    }}
+  />
+
+const Spacer = props =>
+  <div
+    {...props}
+    style={{
+      margin: 'auto'
+    }}
+  />
+
+const PaginationLink = props =>
+  <Link
+    {...props}
+    style={{
+      display: 'block',
+      color: 'inherit',
+      fontWeight: 'bold',
+      textDecoration: 'none',
+    }}
+  />
 
 export const Pagination = withComponents(withDocs(({
   components = {},

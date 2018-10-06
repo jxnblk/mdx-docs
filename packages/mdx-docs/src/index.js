@@ -9,5 +9,10 @@ export {
   MenuToggle,
   Navbar,
 } from './Layout'
-export { SideNav, NavLink } from './SideNav'
+export {
+  NavLinks,
+  NavLink,
+  // backwards-compat
+  NavLinks as SideNav
+} from './NavLinks'
 export { Pagination } from './Pagination'
