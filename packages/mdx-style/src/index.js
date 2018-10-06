@@ -46,15 +46,13 @@ export class MDXStyle extends React.Component {
     if (props.components.pre) {
       components.inlineCode = components.code
       const pre = props.components.pre
-      console.log('has pre', components.pre, pre)
+      const Pre = components.pre
       components.code = props => pre({
-        pre: components.pre,
+        pre: props => <Pre {...props} />,
         ...props
       })
       components.pre = props => props.children
     }
-
-    console.log(components)
 
     return {
       components,

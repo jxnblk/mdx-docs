@@ -84,7 +84,6 @@ export const withMDXLive = Fallback => ({
 }) => {
   const isLive = match.test(props.className)
   const Comp = Pre || Fallback
-  console.log(Pre, Fallback)
   if (!isLive) return <Comp {...props} children={children} />
 
   const code = React.Children.toArray(children).join('\n')
