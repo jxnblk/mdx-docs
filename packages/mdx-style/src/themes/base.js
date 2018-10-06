@@ -96,7 +96,7 @@ export default {
     marginBottom: '32px',
   },
   // how should these work?
-  code: {
+  pre: {
     fontFamily: 'Menlo, monospace',
     fontSize: '14px',
     padding: '16px',
@@ -106,9 +106,11 @@ export default {
     color: 'var(--code)',
     backgroundColor: 'var(--lightgray)',
   },
-  inlineCode: {
+  code: {
     fontFamily: 'Menlo, monospace',
-    color: 'var(--code)'
+    fontSize: '14px',
+    color: 'var(--code)',
+    backgroundColor: 'var(--lightgray)',
   },
   img: {
     maxWidth: '100%',

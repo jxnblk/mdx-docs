@@ -46,11 +46,11 @@ export default {
     maxWidth: '100%',
     height: 'auto',
   },
-  inlineCode: {
+  code: {
     fontFamily: 'inherit',
     color: magenta,
   },
-  code: {
+  pre: {
     fontFamily: 'inherit',
     marginTop: '32px',
     marginBottom: '32px',
