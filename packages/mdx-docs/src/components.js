@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import get from 'lodash.get'
-import LiveCode from './LiveCode'
+import { LiveCode } from 'mdx-live'
 import css from './css'
 
 export const a = ({ as: Tag = 'a', ...props }) =>
