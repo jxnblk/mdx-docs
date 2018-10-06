@@ -6,10 +6,7 @@
   "scripts": {
     "prepare": "babel src -d dist && npm run emotion",
     "clean": "rm -r dist",
-    "emotion": "NODE_ENV=emotion babel src -d dist/emotion",
-    "watch": "babel src -d dist --watch",
-    "start": "mdx-go docs -p 8989",
-    "test": "jest"
+    "emotion": "NODE_ENV=emotion babel src -d dist/emotion"
   },
   "keywords": [],
   "author": "Brent Jackson",
@@ -22,7 +19,6 @@
   },
   "peerDependencies": {
     "@mdx-js/tag": ">=0.15",
-    "next": "7.x",
     "styled-components": "3.x"
   },
   "devDependencies": {
@@ -31,7 +27,6 @@
     "babel-plugin-transform-rename-import": "^2.3.0",
     "emotion": "^9.2.12",
     "emotion-theming": "^9.2.9",
-    "next": "^7.0.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-emotion": "^9.2.12",

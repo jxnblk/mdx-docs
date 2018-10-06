@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Container from './Container'
 import { withDocs } from './context'
+import withComponents from './withComponents'
 import css from './css'
 import { a } from './components'
 
@@ -15,7 +16,8 @@ const PaginationLink = styled(a)([], {
   textDecoration: 'none',
 }, css('PaginationLink'))
 
-export default withDocs(({
+export default withComponents(withDocs(({
+  components = {},
   routes = [],
   route
 }) => {
@@ -28,13 +30,17 @@ export default withDocs(({
       <Container>
         <Flex>
           {previous && (
-            <PaginationLink href={previous.path}>
+            <PaginationLink
+              as={components.a}
+              href={previous.path}>
               {previous.name}
             </PaginationLink>
           )}
           <Spacer />
           {next && (
-            <PaginationLink href={next.path}>
+            <PaginationLink
+              as={components.a}
+              href={next.path}>
               {next.name}
             </PaginationLink>
           )}
@@ -42,4 +48,4 @@ export default withDocs(({
       </Container>
     </Root>
   )
-})
+}))
