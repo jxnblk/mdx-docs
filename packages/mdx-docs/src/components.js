@@ -1,23 +1,29 @@
 import React from 'react'
-import styled from 'styled-components'
 import get from 'lodash.get'
 import { withMDXLive } from 'mdx-live'
-import css from './css'
 
 export const a = ({ as: Tag = 'a', ...props }) =>
   <Tag {...props} />
 
-export const Pre = styled.pre([], {
-  fontFamily: 'Menlo, monospace',
-  fontSize: '13px',
-  overflowX: 'auto',
-  maxWidth: '100%',
-}, css('pre'))
+export const Pre = props =>
+  <pre
+    {...props}
+    style={{
+      fontFamily: 'Menlo, monospace',
+      fontSize: '13px',
+      overflowX: 'auto',
+      maxWidth: '100%',
+    }}
+  />
 
-export const inlineCode = styled.code([], {
-  fontFamily: 'Menlo, monospace',
-  fontSize: '81.25%',
-}, css('code'))
+export const inlineCode = props =>
+  <code
+    {...props}
+    style={{
+      fontFamily: 'Menlo, monospace',
+      fontSize: '81.25%',
+    }}
+  />
 
 export const pre = props => props.children
 export const code = withMDXLive(Pre)
