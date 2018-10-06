@@ -15,38 +15,9 @@ export const theme = {
     fontFamily: monospace,
     fontSize: '13px',
   },
-  Header: {
-    backgroundColor: 'white',
-    borderBottom: `1px solid ${lightGray}`,
-  },
   LayoutSidebar: {
     borderRight: `1px solid ${lightGray}`,
   },
-  LiveCode: {
-    borderRadius: '4px',
-    border: `1px solid ${lightGray}`
-  },
-  LivePreview: {
-    padding: '16px',
-  },
-  LiveEditor: {
-    fontFamily: monospace,
-    fontSize: '13px',
-    padding: '16px',
-    backgroundColor: lightGray,
-    '&:focus': {
-      outline: 'none',
-    }
-  },
-  LiveError: {
-    fontFamily: monospace,
-    fontSize: '13px',
-    color: 'white',
-    backgroundColor: red
-  },
-  MenuButton: {
-    padding: '8px'
-  }
 }
 
 export default theme

@@ -1,167 +1,397 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import Root from './Root'
-import MenuButton from './MenuButton'
-import Container from './Container'
-import { DocsContext } from './context'
-import css from './css'
+import { DocsContext, withDocs } from './context'
 
-export const Flex = styled.div([], {
-  display: 'flex',
-  width: '100%'
-},
-  css('Layout')
+const MediaContext = React.createContext()
+
+export const withMedia = Component => React.forwardRef((props, ref) =>
+  <MediaContext.Consumer
+    children={media => (
+      <Component
+        {...props}
+        ref={ref}
+        media={media}
+      />
+    )}
+  />
 )
 
-export const SidebarRoot = styled.div([], {
-  backgroundColor: 'white',
-  position: 'fixed',
-  left: 0,
-  bottom: 0,
-  overflowY: 'auto',
-  WebkitOverflowScrolling: 'touch',
-  transitionProperty: 'transform',
-  transitionDuration: '.2s',
-  transitionTimingFunction: 'ease-out',
-},
-  props => ({
-    transform: `translateX(${props.open ? '0' : '-100%'})`,
-    '@media screen and (min-width: 40em)': {
-      transform: 'none'
-    }
-  }),
-  props => props.css,
-  css('LayoutSidebar')
-)
+export const MediaConsumer = MediaContext.Consumer
 
-export const Overlay = styled.div([], {
-  position: 'fixed',
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
-},
-  css('LayoutOverlay')
-)
-
-export const SidebarSpacer = styled.div([], {
-  flex: 'none',
-  display: 'none',
-  '@media screen and (min-width: 40em)': {
-    display: 'block'
-  }
-}, props => props.css)
-
-export const Sidebar = ({
-  open,
-  onDismiss,
-  children,
-  top = 0,
-  width = '256px'
-}) =>
-  <React.Fragment>
-    {open && <Overlay onClick={onDismiss} />}
-    <SidebarSpacer
-      css={{ width }}
-    />
-    <SidebarRoot
-      open={open}
-      onClick={onDismiss}
-      css={{ width, top }}>
-      {children}
-    </SidebarRoot>
-  </React.Fragment>
-
-export const Main = styled.div([], {
-  width: '100%',
-  minWidth: 0,
-  minHeight: '100vh'
-},
-  css('LayoutMain')
-)
-
-export const Fixed = styled.div([], {
-  position: 'fixed',
-}, ({ children, ...props }) => props)
-
-export class Layout extends React.Component {
+export class MediaProvider extends React.Component {
   static propTypes = {
-    routes: PropTypes.array,
-    router: PropTypes.shape({
-      pathname: PropTypes.string
-    }),
-    theme: PropTypes.object,
-    components: PropTypes.object,
-    sidebar: PropTypes.node,
-    header: PropTypes.node,
-    footer: PropTypes.node,
-    sidebarWidth: PropTypes.string,
+    mediaQueries: PropTypes.object.isRequired,
   }
 
   state = {
-    menu: false
+    matches: []
   }
 
-  toggleMenu = () => this.setState(state => ({
-    menu: !state.menu
-  }))
+  listeners = []
 
-  closeMenu = () => this.setState({ menu: false })
+  handleChange = name => e => {
+    const { matches } = this.state
+    if (e.matches && matches.indexOf(name) > -1) return
+    if (e.matches) {
+      this.setState(state => ({
+        matches: [
+          ...state.matches,
+          name
+        ]
+      }))
+    } else {
+      this.setState(state => ({
+        matches: state.matches.filter(n => n !== name)
+      }))
+    }
+  }
+
+  registerListener = ({ name, value }) => {
+    const handleChange = this.handleChange(name)
+    const matcher = window.matchMedia(value)
+    const listener = matcher.addListener(handleChange)
+    if (matcher.matches) {
+      this.setState(state => ({ matches: [ ...state.matches, name ] }))
+    }
+    this.listeners.push({ matcher, listener })
+  }
+
+  removeListeners = () => {
+    this.listeners.forEach(({ matcher, listener }) => {
+      matcher.removeListener(listener)
+    })
+  }
+
+  componentDidMount () {
+    const { mediaQueries } = this.props
+    Object.keys(mediaQueries)
+      .map(name => ({ name, value: mediaQueries[name] }))
+      .forEach(this.registerListener)
+  }
+
+  componentWillUnmount () {
+    this.removeListeners()
+  }
 
   render () {
     const {
-      theme,
-      components,
-      sidebar,
-      header,
-      footer,
-      routes,
-      router,
-      sidebarWidth,
-      children
+      mediaQueries,
+      ...props
     } = this.props
-    const { menu } = this.state
+    const { matches } = this.state
+    const context = { matches }
+    matches.forEach(name => {
+      context[name] = true
+    })
+
+    return (
+      <MediaContext.Provider
+        {...props}
+        value={context}
+      />
+    )
+  }
+}
+
+export const Flex = props =>
+  <div
+    {...props}
+    style={{
+      display: 'flex',
+      width: '100%'
+    }}
+  />
+
+const SidebarRoot = withMedia(({
+  width,
+  open,
+  style,
+  media,
+  color,
+  bg,
+  ...props
+}) =>
+  <div
+    {...props}
+    style={{
+      width,
+      transform: (open || media.small) ? 'none' : 'translateX(-100%)',
+      position: 'fixed',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      overflowY: 'auto',
+      paddingTop: 32,
+      paddingBottom: 32,
+      color,
+      backgroundColor: bg,
+      WebkitOverflowScrolling: 'touch',
+      ...(!media.small ? {
+        transitionProperty: 'transform',
+        transitionDuration: '.2s',
+        transitionTimingFunction: 'ease-out',
+      } : {}),
+      ...style,
+    }}
+  />
+)
+
+SidebarRoot.defaultProps = {
+  width: 256,
+  bg: '#f6f6ff'
+}
+
+const SidebarSpacer = withMedia(({
+  media,
+  ...props
+}) =>
+  <div
+    {...props}
+    style={{
+      display: media.small ? 'block' : 'none',
+      flex: 'none',
+      width: props.width,
+    }}
+  />
+)
+
+SidebarSpacer.defaultProps = {
+  width: 256,
+}
+
+const Overlay = withMedia(({
+  media,
+  ...props
+}) =>
+  <div
+    {...props}
+    style={{
+      display: media.small ? 'none' : 'block',
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+    }}
+  />
+)
+
+export const Sidebar = withDocs(({
+  layout: {
+    open,
+    openMenu,
+    closeMenu,
+    toggleMenu,
+    update,
+  },
+  width,
+  ...props
+}) =>
+  <React.Fragment>
+    {open && <Overlay onClick={closeMenu} />}
+    <SidebarSpacer width={width} />
+    <SidebarRoot
+      onClick={closeMenu}
+      {...props}
+      width={width}
+      open={open}
+    />
+  </React.Fragment>
+)
+
+Sidebar.defaultProps = {
+  width: 256,
+}
+
+const MainRoot = props =>
+  <div
+    {...props}
+    style={{
+      width: '100%',
+      minWidth: 0,
+      minHeight: '100vh'
+    }}
+  />
+
+const MainContainer = props =>
+  <div
+    {...props}
+    style={{
+      maxWidth: 768,
+      padding: 32,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    }}
+  />
+
+export const Main = props =>
+  <MainRoot>
+    <MainContainer {...props} />
+  </MainRoot>
+
+export const MenuIcon = ({
+  size = 24,
+  ...props
+}) =>
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 24 24'
+    width={size}
+    height={size}
+    style={{
+      display: 'block'
+    }}>
+    <path d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z' />
+  </svg>
+
+export const MenuButton = ({
+  m,
+  style,
+  ...props
+}) =>
+  <button
+    {...props}
+    style={{
+      position: 'fixed',
+      appearance: 'none',
+      fontSize: 'inherit',
+      fontFamily: 'inherit',
+      display: 'inline-block',
+      border: 0,
+      borderRadius: 0,
+      padding: 0,
+      margin: m,
+      color: 'inherit',
+      backgroundColor: 'transparent',
+      ...style
+    }}
+  />
+
+MenuButton.defaultProps = {
+  m: 8
+}
+
+export const MenuToggle = withDocs(({
+  layout: {
+    toggleMenu,
+    closeMenu,
+    openMenu,
+    update,
+    open,
+  },
+  children,
+  ...props
+}) => typeof children === 'function'
+  ? children({ open, toggleMenu })
+  : (
+    <MenuButton
+      {...props}
+      onClick={toggleMenu}>
+      {children}
+    </MenuButton>
+  ))
+
+MenuToggle.defaultProps = {
+  title: 'Toggle Menu',
+  children: <MenuIcon />
+}
+
+MenuToggle.isMenuToggle = true
+
+const NavbarRoot = ({
+  height,
+  ...props
+}) =>
+  <header
+    {...props}
+    style={{
+      height,
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      left: 0,
+      display: 'flex',
+      alignItems: 'center',
+    }}
+  />
+
+const NavbarSpacer = ({ height }) =>
+  <div style={{ height }} />
+
+export const Navbar = ({
+  height,
+  ...props
+}) =>
+  <React.Fragment>
+    <NavbarSpacer height={height} />
+    <NavbarRoot
+      {...props}
+      height={height}
+    />
+  </React.Fragment>
+
+Navbar.defaultProps = {
+  height: 48,
+}
+
+Navbar.isNavbar = true
+
+export const toggle = state => ({ open: !state.open })
+export const close = state => ({ open: false })
+export const open = state => ({ open: true })
+
+export class Layout extends React.Component {
+  static Sidebar = Sidebar
+  static Main = Main
+  static MenuToggle = MenuToggle
+  static Navbar = Navbar
+
+  state = {
+    open: false,
+    update: fn => this.setState(fn),
+  }
+
+  render () {
+    const {
+      breakpoint,
+      routes = [],
+      router = {},
+      ...props
+    } = this.props
 
     const route = routes.find(route => route.path === router.pathname) || {}
-
     const context = {
-      ...this.state,
-      toggleMenu: this.toggleMenu,
-      closeMenu: this.closeMenu,
+      layout: {
+        ...this.state,
+        toggleMenu: () => this.state.update(toggle),
+        openMenu: () => this.state.update(open),
+        closeMenu: () => this.state.update(close),
+      },
       routes,
-      route,
+      route
     }
+
+    const children = React.Children.toArray(this.props.children)
+    const columns = children.filter(child => !child.type.isNavbar && !child.type.isMenuToggle)
+    const [ navbar ] = children.filter(child => child.type.isNavbar)
+    const [ menuToggle ] = children.filter(child => child.type.isMenuToggle)
 
     return (
       <DocsContext.Provider value={context}>
-        <Root
-          theme={theme}
-          components={components}>
-          {header}
-          {sidebar && !header && (
-            <Fixed>
-              <MenuButton />
-            </Fixed>
-          )}
-          <Flex>
-            {sidebar && (
-              <Sidebar
-                open={menu}
-                onDismiss={this.closeMenu}
-                top={header ? '48px' : undefined}
-                width={sidebarWidth}>
-                {sidebar}
-              </Sidebar>
-            )}
-            <Main>
-              <Container>
-                {children}
-              </Container>
-              {footer}
-            </Main>
-          </Flex>
-        </Root>
+        <MediaProvider
+          mediaQueries={{
+            'small': 'screen and (min-width:40em)'
+          }}>
+          {menuToggle}
+          {navbar}
+          <Root {...props}>
+            <Flex>
+              {columns}
+            </Flex>
+          </Root>
+        </MediaProvider>
       </DocsContext.Provider>
     )
   }

@@ -38,18 +38,18 @@ export default class MyApp extends App {
           <title>MDX Docs</title>
         </Head>
         <Layout
-          {...this.props}
           theme={theme}
           components={components}
           routes={routes}
-          sidebarWidth='192px'
-          sidebar={(
-            <SideNav />
-          )}
-          footer={(
-            <Pagination />
-          )}>
-          <Component {...page} />
+          {...this.props}>
+          <Layout.MenuToggle />
+          <Layout.Sidebar>
+            <SideNav routes={routes} />
+          </Layout.Sidebar>
+          <Layout.Main>
+            <Component {...page} />
+            <Pagination routes={routes} />
+          </Layout.Main>
         </Layout>
       </Container>
     )
