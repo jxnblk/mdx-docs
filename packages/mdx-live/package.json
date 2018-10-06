@@ -1,0 +1,27 @@
+{
+  "name": "mdx-live",
+  "version": "1.0.0-1",
+  "description": "React Live for fenced code blocks in MDX",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "babel src -d dist",
+    "clean": "rm -r dist",
+    "start": "mdx-go docs",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "@mdx-js/tag": "^0.15.0",
+    "react-live": "^1.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@mdx-js/mdx": "^0.15.4",
+    "mdx-go": "^2.0.0-23",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-test-renderer": "^16.5.2"
+  }
+}

@@ -1,9 +1,6 @@
-{
-  presets: [
-    'env',
-    'stage-0',
-    'react'
-  ],
+const config = require('../../babel.config')
+
+module.exports = Object.assign({}, config, {
   env: {
     emotion: {
       plugins: [
@@ -17,4 +14,4 @@
       ]
     }
   }
-}
+})

@@ -7,7 +7,7 @@
     "create-docs": "./cli.js"
   },
   "scripts": {
-    "test": "./cli.js"
+    "start": "./cli.js"
   },
   "keywords": [],
   "author": "Brent Jackson",

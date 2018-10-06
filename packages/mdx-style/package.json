@@ -1,0 +1,23 @@
+{
+  "name": "mdx-style",
+  "version": "1.0.0-3",
+  "description": "Add styles to markdown elements in MDX",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "babel src -d dist",
+    "clean": "rm -r dist"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "@mdx-js/tag": "^0.15.0",
+    "object-style": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-test-renderer": "^16.5.1"
+  }
+}

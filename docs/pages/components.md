@@ -69,7 +69,6 @@ Prop            | Type    | Description
 `theme`         | object  | Object of styles to theme components
 `components`    | object  | Object of React components for MDX and live code examples
 `routes`        | array   | Array of route objects for creating navigation
-`basepath`      | string  | String for URL basepath used in links
 `sidebar`       | node    | Element to render in the left sidebar
 `sidebarWidth`  | string  | CSS width of the sidebar
 `header`        | node    | Element to render at the top of the page

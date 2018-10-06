@@ -1,5 +1,6 @@
 import React from 'react'
 import App, { Container } from 'next/app'
+import Head from 'next/head'
 import {
   Layout,
   SideNav,
@@ -7,9 +8,6 @@ import {
 } from 'mdx-docs'
 import theme from '../src/theme'
 import components from '../src/components'
-
-const isProd = process.env.NODE_ENV === 'production'
-const basepath = isProd ? '/mdx-docs' : ''
 
 const routes = [
   { name: 'MDX Docs', path: '/' },
@@ -36,9 +34,11 @@ export default class MyApp extends App {
 
     return (
       <Container>
+        <Head>
+          <title>MDX Docs</title>
+        </Head>
         <Layout
           {...this.props}
-          basepath={basepath}
           theme={theme}
           components={components}
           routes={routes}
