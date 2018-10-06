@@ -3,3 +3,4 @@ test
 coverage
 docs
 site
+babel.config.js

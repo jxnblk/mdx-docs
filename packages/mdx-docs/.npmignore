@@ -1,4 +1,4 @@
-.babelrc
+babel.config.js
 src
 test
 demo
