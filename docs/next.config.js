@@ -7,14 +7,10 @@ const mdPlugins = [
   require('remark-unwrap-images'),
 ]
 
-const isProd = process.env.NODE_ENV === 'production'
-const assetPrefix = isProd ? 'https://jxnblk.com/mdx-docs/' : ''
-
 module.exports = {
   pageExtensions: [
     'js', 'md', 'mdx'
   ],
-  assetPrefix,
   webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
       test: /\.js$/,

@@ -15,7 +15,6 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "is-absolute-url": "^2.1.0",
     "lodash.get": "^4.4.2",
     "prop-types": "^15.6.2",
     "react-live": "^1.11.0",

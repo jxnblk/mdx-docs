@@ -5,10 +5,6 @@ import get from 'lodash.get'
 import LiveCode from './LiveCode'
 import css from './css'
 
-// remove with react-router support
-const isProd = process.env.NODE_ENV === 'production'
-
-// Link
 export const a = ({ href, ...props }) =>
   <NextLink href={href}>
     <a {...props} />
