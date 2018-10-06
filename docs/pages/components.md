@@ -85,26 +85,3 @@ Theme key         | Description
 `PaginationLink`  | The links used for previous and next pages
 
 
----
-
-## Other Components
-
-## Root
-
-The Root component is used in the Layout component to provide `theme` and `components` context and to set base typographic styles.
-You do not need to add this component when using the Layout component.
-
-Prop          | Type    | Description
---------------|---------|------------
-`theme`       | Object  | Object of styles for theming components
-`components`  | Object  | Object of components for MDX and live code examples
-
-
-## MDX Components
-
-The following components are included in default MDX scope when using the Layout or Root components
-
-- `a`
-- `code`
-- `pre`
-
