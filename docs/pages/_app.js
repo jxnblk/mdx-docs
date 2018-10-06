@@ -9,9 +9,6 @@ import {
 import theme from '../src/theme'
 import components from '../src/components'
 
-const isProd = process.env.NODE_ENV === 'production'
-const basepath = isProd ? '/mdx-docs' : ''
-
 const routes = [
   { name: 'MDX Docs', path: '/' },
   { name: 'Theming', path: '/theming' },
@@ -42,7 +39,6 @@ export default class MyApp extends App {
         </Head>
         <Layout
           {...this.props}
-          basepath={basepath}
           theme={theme}
           components={components}
           routes={routes}
