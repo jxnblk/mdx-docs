@@ -1,7 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const css = key => props => props.theme[key]
+
+const a = ({ href, ...props }) =>
+  <Link href={href}>
+    <a {...props} />
+  </Link>
 
 // add these to mdx-docs default components
 const h1 = styled.h1([], css('h1'))
@@ -14,6 +20,7 @@ const p = styled.p([], css('p'))
 const table = styled.table([], css('table'))
 
 export default {
+  a,
   h1,
   h2,
   h3,

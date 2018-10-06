@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { withDocs } from './context'
+import withComponents from './withComponents'
 import { a } from './components'
 
 export const NavLink = styled(a)([], {
@@ -15,7 +16,8 @@ export const NavLink = styled(a)([], {
   paddingRight: '16px',
 }, props => props.theme.NavLink)
 
-export default withDocs(({
+export default withComponents(withDocs(({
+  components = {},
   routes = [],
   ...props
 }) => (
@@ -23,9 +25,10 @@ export default withDocs(({
     {routes.map((route, i) => (
       <NavLink
         key={route.path + i}
+        as={components.a}
         href={route.path}
         children={route.name}
       />
     ))}
   </React.Fragment>
-))
+)))
