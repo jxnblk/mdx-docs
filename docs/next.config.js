@@ -37,6 +37,7 @@ module.exports = {
     })
 
     config.resolve.alias['styled-components'] = path.join(__dirname, './node_modules/styled-components')
+    config.resolve.alias['@mdx-js/tag'] = path.join(__dirname, './node_modules/@mdx-js/tag')
 
     config.resolve.alias['mdx-docs'] = path.join(__dirname, '../packages/mdx-docs/src')
 
