@@ -21,7 +21,7 @@ module.exports = (providedOptions = {}) => (nextConfig = {}) => {
           options.defaultLoaders.babel,
           {
             loader: '@mdx-js/loader',
-            options: Object.assign({}, pluginOptions, providedOptions, {
+            options: Object.assign({}, providedOptions, {
               mdPlugins: allMdPlugins
             })
           }
