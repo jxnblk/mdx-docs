@@ -5,10 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prepare": "babel src -d dist",
-    "clean": "rm -r dist",
-    "start": "npx mdx-go docs",
-    "build": "npx mdx-go build docs -d site",
-    "test": "jest"
+    "clean": "rm -r dist"
   },
   "keywords": [],
   "author": "Brent Jackson",
