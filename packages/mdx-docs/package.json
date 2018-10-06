@@ -13,6 +13,7 @@
   "dependencies": {
     "mdx-live": "^2.0.0-alpha.0",
     "mdx-style": "^2.0.0-alpha.0",
+    "object-style": "^1.0.3",
     "prop-types": "^15.6.2"
   },
   "peerDependencies": {

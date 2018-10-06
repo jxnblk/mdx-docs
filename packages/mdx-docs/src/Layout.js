@@ -1,115 +1,48 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import MDXStyle from 'mdx-style'
+import objectStyle from 'object-style'
 import { base as baseTheme } from 'mdx-style/themes'
 import { DocsContext, withDocs } from './context'
 import defaultComponents from './components'
 
-const MediaContext = React.createContext()
+const rules = []
+const join = (...args) => args.join(' ')
 
-export const withMedia = Component => React.forwardRef((props, ref) =>
-  <MediaContext.Consumer
-    children={media => (
-      <Component
-        {...props}
-        ref={ref}
-        media={media}
-      />
-    )}
-  />
-)
-
-export const MediaConsumer = MediaContext.Consumer
-
-export class MediaProvider extends React.Component {
-  static propTypes = {
-    mediaQueries: PropTypes.object.isRequired,
-  }
-
-  state = {
-    matches: []
-  }
-
-  listeners = []
-
-  handleChange = name => e => {
-    const { matches } = this.state
-    if (e.matches && matches.indexOf(name) > -1) return
-    if (e.matches) {
-      this.setState(state => ({
-        matches: [
-          ...state.matches,
-          name
-        ]
-      }))
-    } else {
-      this.setState(state => ({
-        matches: state.matches.filter(n => n !== name)
-      }))
-    }
-  }
-
-  registerListener = ({ name, value }) => {
-    const handleChange = this.handleChange(name)
-    const matcher = window.matchMedia(value)
-    const listener = matcher.addListener(handleChange)
-    if (matcher.matches) {
-      this.setState(state => ({ matches: [ ...state.matches, name ] }))
-    }
-    this.listeners.push({ matcher, listener })
-  }
-
-  removeListeners = () => {
-    this.listeners.forEach(({ matcher, listener }) => {
-      matcher.removeListener(listener)
-    })
-  }
-
-  componentDidMount () {
-    const { mediaQueries } = this.props
-    Object.keys(mediaQueries)
-      .map(name => ({ name, value: mediaQueries[name] }))
-      .forEach(this.registerListener)
-  }
-
-  componentWillUnmount () {
-    this.removeListeners()
-  }
-
-  render () {
-    const {
-      mediaQueries,
-      ...props
-    } = this.props
-    const { matches } = this.state
-    const context = { matches }
-    matches.forEach(name => {
-      context[name] = true
-    })
-
-    return (
-      <MediaContext.Provider
-        {...props}
-        value={context}
-      />
-    )
-  }
+const styled = Tag => style => props => {
+  const rule = objectStyle(style)
+  rules.push(...rule.rules)
+  return <Tag {...props} className={join(props.className, rule.className)} />
 }
 
-export const Flex = props =>
-  <div
-    {...props}
-    style={{
-      display: 'flex',
-      width: '100%'
-    }}
-  />
+const breakpoint = '@media screen and (min-width: 40em)'
 
-const SidebarRoot = withMedia(({
+export const Flex = styled('div')({
+  display: 'flex',
+  width: '100%'
+})
+
+const SidebarRoot = styled('div')({
+  position: 'fixed',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  overflowY: 'auto',
+  paddingTop: '32px',
+  paddingBottom: '32px',
+  // WebkitOverflowScrolling: 'touch',
+  [breakpoint]: {
+    transform: 'none !important',
+    transitionProperty: 'transform',
+    transitionDuration: '.2s',
+    transitionTimingFunction: 'ease-out',
+  }
+})
+
+const _SidebarRoot = styled(({
   width,
   open,
   style,
-  media,
   color,
   bg,
   ...props
@@ -118,67 +51,67 @@ const SidebarRoot = withMedia(({
     {...props}
     style={{
       width,
-      transform: (open || media.small) ? 'none' : 'translateX(-100%)',
-      position: 'fixed',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      overflowY: 'auto',
-      paddingTop: 32,
-      paddingBottom: 32,
+      transform: open ? 'none' : 'translateX(-100%)',
       color,
       backgroundColor: bg,
-      WebkitOverflowScrolling: 'touch',
-      ...(!media.small ? {
-        transitionProperty: 'transform',
-        transitionDuration: '.2s',
-        transitionTimingFunction: 'ease-out',
-      } : {}),
       ...style,
     }}
   />
-)
+)({
+  position: 'fixed',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  overflowY: 'auto',
+  paddingTop: '32px',
+  paddingBottom: '32px',
+  WebkitOverflowScrolling: 'touch',
+  [breakpoint]: {
+    transform: 'none !important',
+    transitionProperty: 'transform',
+    transitionDuration: '.2s',
+    transitionTimingFunction: 'ease-out',
+  }
+})
 
 SidebarRoot.defaultProps = {
   width: 256,
   bg: '#f6f6ff'
 }
 
-const SidebarSpacer = withMedia(({
-  media,
+const SidebarSpacer = styled(({
+  width,
   ...props
 }) =>
   <div
     {...props}
     style={{
-      display: media.small ? 'block' : 'none',
-      flex: 'none',
-      width: props.width,
+      width
     }}
   />
-)
+)({
+  display: 'none',
+  [breakpoint]: {
+    display: 'block'
+  }
+})
 
 SidebarSpacer.defaultProps = {
   width: 256,
 }
 
-const Overlay = withMedia(({
-  media,
-  ...props
-}) =>
-  <div
-    {...props}
-    style={{
-      display: media.small ? 'none' : 'block',
-      position: 'fixed',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-    }}
-  />
-)
+const Overlay = styled('div')({
+  display: 'block',
+  position: 'fixed',
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+  WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+  [breakpoint]: {
+    display: 'none'
+  },
+})
 
 export const Sidebar = withDocs(({
   layout: {
@@ -347,6 +280,12 @@ export const open = state => ({ open: true })
 export const getNextRoute = props => props.routes.find(route => route.path === props.router.pathname) || {}
 export const getReachRoute = props => props.routes.find(route => route.path === props.location) || {}
 
+const style = <style
+  dangerouslySetInnerHTML={{
+    __html: rules.join('')
+  }}
+/>
+
 export class Layout extends React.Component {
   static Sidebar = Sidebar
   static Main = Main
@@ -396,29 +335,20 @@ export class Layout extends React.Component {
 
     return (
       <DocsContext.Provider value={context}>
-        <MediaProvider
-          mediaQueries={{
-            'small': 'screen and (min-width:40em)'
-          }}>
-          {menuToggle}
-          {navbar}
-          <MDXStyle
-            css={{
-              ...baseTheme,
-              // todo: fix
-              code: {},
-              // ...theme
-            }}
-            components={{
-              ...defaultComponents,
-              ...components
-            }}
-            {...props}>
-            <Flex>
-              {columns}
-            </Flex>
-          </MDXStyle>
-        </MediaProvider>
+        {style}
+        {menuToggle}
+        {navbar}
+        <MDXStyle
+          css={baseTheme}
+          components={{
+            ...defaultComponents,
+            ...components
+          }}
+          {...props}>
+          <Flex>
+            {columns}
+          </Flex>
+        </MDXStyle>
       </DocsContext.Provider>
     )
   }
