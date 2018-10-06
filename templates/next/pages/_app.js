@@ -1,8 +1,9 @@
 import React from 'react'
 import App, { Container } from 'next/app'
+import Link from 'next/link'
 import {
   Layout,
-  SideNav,
+  NavLinks,
   Pagination
 } from 'mdx-docs'
 
@@ -12,6 +13,13 @@ const routes = [
   { name: 'Components', path: '/components' },
   { name: 'Button', path: '/components/Button' },
 ]
+
+const components = {
+  a: ({ href, ...props }) =>
+    <Link href={href}>
+      <a {...props} />
+    </Link>
+}
 
 export default class MyApp extends App {
   static async getInitialProps ({ Component, router, ctx }) {
@@ -25,20 +33,27 @@ export default class MyApp extends App {
   }
 
   render () {
-    const { Component, page } = this.props
+    const {
+      Component,
+      page,
+      headManager,
+      ...props
+    } = this.props
 
     return (
       <Container>
         <Layout
-          {...this.props}
-          routes={routes}
-          sidebar={(
-            <SideNav />
-          )}
-          footer={(
+          {...props}
+          components={components}
+          routes={routes}>
+          <Layout.MenuToggle />
+          <Layout.Sidebar>
+            <NavLinks />
+          </Layout.Sidebar>
+          <Layout.Main>
+            <Component {...page} />
             <Pagination />
-          )}>
-          <Component {...page} />
+          </Layout.Main>
         </Layout>
       </Container>
     )

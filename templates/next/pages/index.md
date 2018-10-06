@@ -1,7 +1,9 @@
 
 # npm init docs
 
-Next.js-based documentation site
+This site was generated with [MDX Docs][]: Next.js-based documentation site.
+
+[mdx docs]: https://github.com/jxnblk/mdx-docs
 
 ```sh
 npm init docs
