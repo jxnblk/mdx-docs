@@ -105,3 +105,5 @@ export const MDXLiveProvider = ({ components, ...props }) =>
     }}
     {...props}
   />
+
+export default withMDXLive('pre')
