@@ -46,7 +46,7 @@ export class MDXStyle extends React.Component {
       components.inlineCode = components.code
       const pre = props.components.pre
       const Pre = components.pre
-      components.code = props => pre({
+      components.code = props => React.createElement(pre, {
         pre: props => <Pre {...props} />,
         ...props
       })
