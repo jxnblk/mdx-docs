@@ -11,6 +11,14 @@
     "next": "^7.0.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "remark-autolink-headings": "^5.1.0",
+    "remark-emoji": "^2.0.2",
+    "remark-images": "^0.16.1",
+    "remark-slug": "^5.1.1",
+    "remark-unwrap-images": "^0.1.0"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^0.16.6"
   }
 }
