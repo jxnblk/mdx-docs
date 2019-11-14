@@ -14,6 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "@mdx-js/tag": "^0.15.0",
+    "buble": "0.19.4",
     "react-live": "^1.11.0"
   },
   "devDependencies": {
